@@ -24,11 +24,29 @@
 
 .layout::before {
   content: "";
-  opacity: 0.3;
+  opacity: 0.5;
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   background-color: #333;
+}
+
+.exploreButton {
+  width: 150px;
+  border-radius: 10px;
+  background-color: #2992fc;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.exploreButton:hover {
+  background-color: rgb(35, 126, 218);
 }

@@ -18,7 +18,7 @@ const Header = () => {
       <ul className={styles.navBar}>
         <div style={{ display: "flex" }}>
           <li className={styles.navItem}>
-            <Link className={styles.navLink} href={"/"}>
+            <Link className={styles.navLink} href={"/explore"}>
               Explore
             </Link>
           </li>

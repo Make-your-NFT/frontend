@@ -7,7 +7,7 @@ interface layoutProps {
 }
 const Layout = (props: layoutProps) => {
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Header />
       <main className={styles.main}> {props.children}</main>
       <Footer />

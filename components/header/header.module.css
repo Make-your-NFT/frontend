@@ -1,10 +1,14 @@
 .layout {
   display: flex;
-  position: sticky;
+  position: fixed;
   justify-content: space-between;
+  width: 100%;
+  top: 0;
   max-width: 100vw;
   height: 72px;
   box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+  z-index: 10;
+  background-color: white;
 }
 
 .brand {
