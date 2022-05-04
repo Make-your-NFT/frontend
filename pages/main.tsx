@@ -1,7 +1,11 @@
-import Header from "@components/header/header";
+import Intro from "@components/main/intro";
 
 const Main = () => {
-  return <div>gdgd</div>;
+  return (
+    <div>
+      <Intro />
+    </div>
+  );
 };
 
 export default Main;
