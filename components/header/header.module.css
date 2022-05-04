@@ -17,6 +17,7 @@
 .brandName {
   font-size: 22px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .navBar {
@@ -37,6 +38,14 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.navItem:hover {
+  color: black;
+}
+
+.navIcon:hover {
+  color: #333 !important;
 }
 
 .navLink {

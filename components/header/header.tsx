@@ -10,7 +10,9 @@ const Header = () => {
     <div className={styles.layout}>
       <div className={styles.brand}>
         <Image src={shirt} width={40} height={40} />
-        <div className={styles.brandName}>Make Your NFT</div>
+        <div className={styles.brandName}>
+          <Link href={"/"}>Make Your NFT</Link>
+        </div>
       </div>
       <SearchBar />
       <ul className={styles.navBar}>
@@ -26,7 +28,11 @@ const Header = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <RiAccountCircleLine size={40} color="gray" />
+            <RiAccountCircleLine
+              className={styles.navIcon}
+              size={40}
+              color="gray"
+            />
           </li>
         </div>
       </ul>
