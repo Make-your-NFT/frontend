@@ -1,4 +1,46 @@
 .layout {
   display: flex;
-  position: fixed;
+  position: sticky;
+  justify-content: space-between;
+  max-width: 100vw;
+  height: 72px;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.brandName {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: center;
+}
+
+.navItem {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(4, 17, 29, 0.75);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navLink {
+  font-weight: 600;
+  font-size: 24px;
+  color: rgba(4, 17, 29, 0.75);
 }
