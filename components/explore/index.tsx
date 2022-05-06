@@ -1,6 +1,6 @@
 import Layout from "@components/layout";
 import styles from "components/explore/index.module.css";
-import Filter from "./filter";
+import Filter from "components/filter/filter";
 
 const Index = () => {
   return (

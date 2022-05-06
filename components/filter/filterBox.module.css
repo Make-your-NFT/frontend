@@ -1,0 +1,18 @@
+.layout {
+  width: 100%;
+  height: 80px;
+  border: 1px solid rgb(223, 223, 223);
+  display: flex;
+  align-items: center;
+}
+
+.layout:hover {
+  box-shadow: rgba(4, 17, 29, 0.4) 0px 0px 8px 0px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 10px 10px 20px;
+  line-height: 40px;
+}

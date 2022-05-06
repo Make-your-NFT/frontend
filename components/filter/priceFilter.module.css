@@ -1,0 +1,61 @@
+.layout {
+  width: 100%;
+  height: 200px;
+  background-color: #fbfdff;
+  animation: showDetail 0.2s linear forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.priceLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.priceInputDiv {
+  width: calc(45% - 20px);
+
+  border: 1px solid rgb(229, 232, 235);
+  border-radius: 10px;
+  padding: 3px 3px 3px 10px;
+}
+
+.priceInput {
+  width: calc(100% - 20px);
+  display: flex;
+  border: none;
+  outline: none;
+  height: 45px;
+  padding-left: 5px;
+  font-size: 16px;
+  color: #777;
+}
+
+.applyButton {
+  width: calc(45% - 20px);
+  background-color: #438dd8;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 0px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.applyButton:hover {
+  background-color: #3375b6;
+}
+
+@keyframes showDetail {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 200px;
+  }
+}
