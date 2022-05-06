@@ -6,9 +6,19 @@ import { MdFilterAlt } from "react-icons/md";
 const Filter = () => {
   return (
     <div className={styles.layout}>
-      <div className={filterBoxStyles.layout}>
-        <MdFilterAlt style={{ marginLeft: "20px" }} size={25} />
+      <div
+        style={{
+          display: "flex",
+          marginLeft: "auto",
+        }}
+        className={filterBoxStyles.layout}
+      >
         <span className={filterBoxStyles.name}>Filter</span>
+
+        <MdFilterAlt
+          style={{ marginRight: "20px", marginLeft: "auto" }}
+          size={25}
+        />
       </div>
       <FilterBox name="가격1" />
       <FilterBox name="가격2" />
