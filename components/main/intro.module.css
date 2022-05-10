@@ -34,6 +34,7 @@
 }
 
 .exploreButton {
+  display: block;
   width: 150px;
   border-radius: 10px;
   background-color: #2992fc;
@@ -44,6 +45,7 @@
   font-weight: 600;
   margin: 10px auto;
   position: relative;
+  border: none;
   cursor: pointer;
 }
 

@@ -1,4 +1,5 @@
 import styles from "components/main/intro.module.css";
+import Link from "next/link";
 import globalStyles from "styles/customGlobal.module.css";
 
 const Intro = () => {
@@ -9,7 +10,9 @@ const Intro = () => {
         <p className={styles.h3}>
           Make Your NFT에서 당신의 NFT를 옷으로 만들어 배송해 드립니다
         </p>
-        <div className={styles.exploreButton}>Explore</div>
+        <button className={styles.exploreButton}>
+          <Link href={"/explore"}>Explore</Link>
+        </button>
       </div>
     </div>
   );
