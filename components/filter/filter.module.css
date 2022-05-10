@@ -1,9 +1,12 @@
 .layout {
+  box-sizing: border-box;
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+  bottom: 0;
   width: 20%;
-  min-height: calc(100vh - 170px);
-  height: calc(100vh - 170px);
+  flex-shrink: 0;
+  height: calc(100vh - 72px);
   border: 1px solid rgb(211, 204, 204);
-}
-
-.filterBox {
+  align-self: flex-start;
 }

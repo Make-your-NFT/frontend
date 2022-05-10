@@ -1,0 +1,15 @@
+.layout {
+  width: 320px;
+  border: 1px solid rgb(211, 204, 204);
+  padding: 10px;
+  height: fit-content;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.author {
+  font-size: 14px;
+  color: rgb(161, 154, 154);
+}
