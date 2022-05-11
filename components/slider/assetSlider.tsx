@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "components/slider/assetSlider.module.css";
 import SliderAsset from "./sliderAsset";
+import React from "react";
 
 const AssetSlider = () => {
   const settings = {
@@ -26,7 +27,11 @@ const AssetSlider = () => {
 
       <Slider {...settings}>
         {assets.map((asset, index) => {
-          return <SliderAsset />;
+          return (
+            <React.Fragment key={index}>
+              <SliderAsset title={asset[0]} author={asset[1]} introduce={""} />
+            </React.Fragment>
+          );
         })}
       </Slider>
     </section>
