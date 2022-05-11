@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.exploreLayout {
+  width: 79%;
+}
+
 .assetsLayout {
   width: 100%;
   padding: 20px;

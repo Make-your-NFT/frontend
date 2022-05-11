@@ -1,0 +1,33 @@
+.layout {
+  display: flex;
+  border: 1px solid rgb(211, 204, 204);
+  padding: 10px;
+  height: fit-content;
+  border-radius: 10px;
+  width: 400px;
+  margin: 0 15px;
+  justify-content: space-around;
+}
+
+.infoLayout {
+  width: 250px;
+  padding: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 0;
+  max-width: 250px;
+}
+
+.author {
+  font-size: 14px;
+  color: rgb(161, 154, 154);
+  max-width: 250px;
+}
+
+.introduce {
+  font-size: 16px;
+  max-width: 250px;
+}

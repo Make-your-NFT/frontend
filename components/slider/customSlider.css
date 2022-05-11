@@ -1,0 +1,11 @@
+.slick-prev {
+  background: gray !important;
+  border-radius: 50% !important;
+  left: -16px !important;
+}
+
+.slick-next {
+  background: gray !important;
+  border-radius: 50% !important;
+  right: -16px !important;
+}
