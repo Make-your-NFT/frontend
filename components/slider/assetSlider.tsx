@@ -29,7 +29,7 @@ const AssetSlider = () => {
         {assets.map((asset, index) => {
           return (
             <React.Fragment key={index}>
-              <SliderAsset title={asset[0]} author={asset[1]} introduce={""} />
+              <SliderAsset title={asset["title"]} author={asset["author"]} introduce={""} />
             </React.Fragment>
           );
         })}

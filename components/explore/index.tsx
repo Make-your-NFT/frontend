@@ -16,7 +16,7 @@ const Index = () => {
           </div>
           <div className={styles.assetsLayout}>
             {assets.map((asset, index) => {
-              return <Asset key={index} title={asset[0]} author={asset[1]} />;
+              return <Asset key={index} title={asset["title"]} author={asset["author"]} />;
             })}
           </div>
         </div>
