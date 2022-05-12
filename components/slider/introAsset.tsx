@@ -5,7 +5,6 @@ import Image from "next/image";
 interface assetProps {
   title: string;
   author: string;
-  introduce: string;
 }
 
 const IntroAsset = (props: assetProps) => {
@@ -14,7 +13,6 @@ const IntroAsset = (props: assetProps) => {
       <Image src={shirt} width={400} height={400} />
       <div className={styles.infoLayout}>
         <p className={styles.title}>{props.title}</p>
-        <p className={styles.introduce}>ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ</p>
         <p className={styles.author}>{props.author}</p>
       </div>
     </div>

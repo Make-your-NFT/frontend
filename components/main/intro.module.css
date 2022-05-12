@@ -1,28 +1,51 @@
 .layout {
   width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 95vh;
+  background-size: cover;
+}
+
+.background{
+  width: 100%;
+  height: 95vh;
+  filter: blur(8px);
+  position: absolute;
   background-image: url("/images/mainPoster.jpg");
   background-size: cover;
+  mask-image: linear-gradient(rgb(255, 255, 255), transparent);
+  opacity: 0.5;
+}
+
+.introLayout{
+  width:80vw;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+
+}
+
+.introText{
+  padding: 150px 100px 150px 100px ;
+
 }
 
 .h1 {
   font-size: 55px;
-  color: white;
+  color: black;
   position: relative;
+  text-align:left;
+  margin: 8px 0px;
+  font-weight: 700;
 }
 
 .h3 {
   font-size: 18px;
-  color: rgb(228, 228, 228);
+  color: rgb(49, 49, 49);
   position: relative;
-  text-align: center;
+  text-align: left;
 }
 
-.layout::before {
+/* .layout::before {
   content: "";
   opacity: 0.5;
   position: absolute;
@@ -32,6 +55,12 @@
   bottom: 0px;
   background-color: #333;
   filter: blur(10px);
+} */
+
+.buttonLayout{
+  width: fit-content;
+  display:flex;
+  gap:15px;
 }
 
 .exploreButton {
@@ -44,7 +73,7 @@
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  margin: 10px auto;
+  margin-top: 20px;
   position: relative;
   border: none;
   cursor: pointer;
@@ -52,4 +81,24 @@
 
 .exploreButton:hover {
   background-color: rgb(35, 126, 218);
+}
+
+.createButton {
+  display: block;
+  width: 150px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  border: 2px solid #2992fc;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.createButton:hover {
+  background-color: rgb(241, 241, 241);
 }

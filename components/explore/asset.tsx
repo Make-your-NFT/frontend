@@ -10,7 +10,7 @@ interface assetProps {
 const Asset = (props: assetProps) => {
   return (
     <div className={styles.layout}>
-      <Image src={shirt} width={300} height={400} />
+      <Image src={shirt} width={400} height={400} />
       <div className={styles.title}>{props.title}</div>
       <div className={styles.author}>{props.author}</div>
     </div>
