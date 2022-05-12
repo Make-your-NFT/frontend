@@ -4,9 +4,16 @@
   padding: 20px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 0px;
   display: flex;
   flex-direction:column;
-  justify-content: center;
+  justify-content: space-around;
+}
 
+.title {
+  font-size: 18px;
+}
+
+.author {
+  font-size: 14px;
+  color: rgb(161, 154, 154);
 }

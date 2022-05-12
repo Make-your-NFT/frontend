@@ -1,6 +1,22 @@
 .layout {
-  width: 540px;
-  height: 668px;
-  padding: 40px 20px 20px 20px;
+  position: relative;
+  width: 500px;
+    height: 600px;
+  border-radius: 10px; 
+  margin-top: 30px;
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 5px;
+}
 
+.layout:hover {
+  animation: hover 0.2s linear forwards;
+}
+
+@keyframes hover {
+  from {
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 5px;
+  }
+
+  to {
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 15px 15px;
+  }
 }

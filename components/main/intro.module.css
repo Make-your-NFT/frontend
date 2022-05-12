@@ -39,7 +39,7 @@
 }
 
 .h3 {
-  font-size: 18px;
+  font-size: 22px;
   color: rgb(49, 49, 49);
   position: relative;
   text-align: left;
@@ -80,15 +80,14 @@
 }
 
 .exploreButton:hover {
-  background-color: rgb(35, 126, 218);
-}
+  animation: hover 0.2s linear forwards;}
 
 .createButton {
   display: block;
   width: 150px;
   border-radius: 10px;
   background-color: white;
-  color: black;
+  color: #2992fc;
   padding: 15px;
   border: 2px solid #2992fc;
   text-align: center;
@@ -100,5 +99,14 @@
 }
 
 .createButton:hover {
-  background-color: rgb(241, 241, 241);
+  animation: hover 0.2s linear forwards;
+}
+
+@keyframes hover {
+  from{
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+  }
+  to{
+      box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
+  }
 }

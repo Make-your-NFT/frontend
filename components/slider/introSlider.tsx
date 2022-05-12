@@ -4,8 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "components/slider/introSlider.module.css";
 import React from "react";
-import Asset from "@components/explore/asset";
-import IntroAsset from "./introAsset";
+import IntroAsset from "components/slider/introAsset";
 
 const IntroSlider = () => {
   const settings = {
@@ -26,7 +25,7 @@ const IntroSlider = () => {
         {assets.map((asset, index) => {
           return (
             <React.Fragment key={index}>
-              <IntroAsset title={asset[0]} author={asset[1]} />
+              <IntroAsset title={asset["title"]} author={`${asset["author"]}${index}`} image={asset["image"]}/>
             </React.Fragment>
           );
         })}
