@@ -2,9 +2,8 @@
   display: flex;
   position: fixed;
   justify-content: space-between;
-  width: 100%;
+  width: 100vw;
   top: 0;
-  max-width: 100vw;
   height: 72px;
   box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
   z-index: 10;

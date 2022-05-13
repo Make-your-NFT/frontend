@@ -8,6 +8,10 @@ import Main from "./main";
 const Home: NextPage = () => {
   return (
     <Layout>
+      <Head>
+        <title>Make Yout NFT</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Main />
     </Layout>
   );
