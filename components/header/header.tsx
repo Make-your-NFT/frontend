@@ -4,6 +4,7 @@ import { shirt } from "@public/images";
 import SearchBar from "./searchBar";
 import Link from "next/link";
 import { RiAccountCircleLine } from "react-icons/ri";
+import { MdMenu } from "react-icons/md";
 
 const Header = () => {
   return (
@@ -36,6 +37,9 @@ const Header = () => {
           </li>
         </div>
       </ul>
+      <div className={styles.menu}>
+        <MdMenu size={40} color="gray" />
+      </div>
     </div>
   );
 };

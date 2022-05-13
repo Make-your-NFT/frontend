@@ -4,7 +4,8 @@
   padding: 10px;
   height: fit-content;
   border-radius: 10px;
-  width: 400px;
+  min-width: 300px;
+  width: 460px;
   margin: 0 15px;
   justify-content: space-around;
 }

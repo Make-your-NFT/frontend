@@ -12,10 +12,12 @@
 }
 
 .brand {
+  min-width: 40px;
+  max-width: 250px;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 24px;
+  padding-left: 24px;
 }
 
 .brandName {
@@ -56,4 +58,45 @@
   font-weight: 600;
   font-size: 24px;
   color: rgba(4, 17, 29, 0.75);
+}
+
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .brandName {
+    display: none;
+  }
+  .brand {
+    padding-left: 10px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .navItem,
+  .navIcon,
+  .navBar {
+    display: none;
+  }
+  .menu {
+    display: block;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .layout {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    max-width: 100vw;
+    height: 72px;
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+    z-index: 10;
+    background-color: white;
+    justify-content: space-around;
+  }
 }
