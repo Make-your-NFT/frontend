@@ -14,8 +14,7 @@
   min-width: 40px;
   max-width: 250px;
   display: flex;
-  align-items: center;
-  gap: 10px;
+
   padding-left: 24px;
 }
 
@@ -23,6 +22,9 @@
   font-size: 1.1vw;
   font-weight: 700;
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .navBar {
@@ -65,7 +67,7 @@
 
 @media all and (max-width: 767px) {
   .brandName {
-    display: none;
+    font-size: 0;
   }
   .brand {
     padding-left: 10px;

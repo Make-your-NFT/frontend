@@ -10,3 +10,9 @@
   border: 1px solid rgb(211, 204, 204);
   align-self: flex-start;
 }
+
+@media screen and (max-width: 960px) {
+  .layout {
+    display: none;
+  }
+}

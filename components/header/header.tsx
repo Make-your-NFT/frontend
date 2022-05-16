@@ -10,9 +10,11 @@ const Header = () => {
   return (
     <div className={styles.layout}>
       <div className={styles.brand}>
-        <Image src={shirt} width={40} height={40} />
         <div className={styles.brandName}>
-          <Link href={"/"}>Make Your NFT</Link>
+          <Link href={"/"}>
+            <Image src={shirt} width={40} height={40} />
+          </Link>
+          Make Your NFT
         </div>
       </div>
       <SearchBar />

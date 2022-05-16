@@ -10,7 +10,10 @@ const Home: NextPage = () => {
     <Layout>
       <Head>
         <title>Make Yout NFT</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
       </Head>
       <Main />
     </Layout>

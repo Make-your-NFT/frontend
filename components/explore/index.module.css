@@ -16,3 +16,15 @@
   grid-auto-rows: minmax(400px, auto);
   justify-items: center;
 }
+
+@media screen and (max-width: 960px) {
+  .layout {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    position: relative;
+  }
+  .exploreLayout {
+    width: 100%;
+  }
+}
