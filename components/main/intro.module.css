@@ -28,7 +28,7 @@
 }
 
 .h1 {
-  font-size: 7vmin;
+  font-size: 6vmin;
   color: black;
   position: relative;
   text-align: left;
@@ -37,7 +37,7 @@
 }
 
 .h3 {
-  font-size: 1.5vmax;
+  font-size: 1.4vmax;
   color: rgb(49, 49, 49);
   position: relative;
   text-align: left;
