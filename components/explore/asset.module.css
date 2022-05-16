@@ -1,5 +1,5 @@
 .layout {
-  width: 300px;
+  width: 320px;
   border: 1px solid rgb(211, 204, 204);
   padding: 10px;
   height: fit-content;
@@ -14,4 +14,15 @@
 .author {
   font-size: 14px;
   color: rgb(161, 154, 154);
+}
+
+@media screen and (max-width: 768px) {
+  .layout {
+    width: 40vw;
+    border: 1px solid rgb(211, 204, 204);
+    padding: 10px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: white;
+  }
 }
