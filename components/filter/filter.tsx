@@ -24,6 +24,7 @@ const Filter = () => {
   }
   
   useEffect(() =>{
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
