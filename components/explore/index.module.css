@@ -12,9 +12,10 @@
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(33vh, 1fr));
-  grid-auto-rows: minmax(400px, auto);
+  grid-template-columns: repeat(auto-fit, minmax(33vmin, 1fr));
+  grid-auto-rows: minmax(250px, auto);
   justify-items: center;
+  gap: 10px;
 }
 
 @media screen and (max-width: 960px) {
@@ -23,6 +24,7 @@
     height: 100%;
     flex-direction: column;
     position: relative;
+    margin-top: 72px;
   }
   .exploreLayout {
     width: 100%;

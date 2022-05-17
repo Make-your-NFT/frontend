@@ -8,17 +8,13 @@ interface filterBoxProps {
 const FilterBox = (props: filterBoxProps) => {
   const [detail, setDetail] = useState(false);
 
-  const showDetail = () => {
-    setDetail(true);
-  };
-
-  const closeDetail = () => {
-    setDetail(false);
+  const handleDetail = () => {
+    detail ? setDetail(false) : setDetail(true);
   };
 
   return (
-    <div onMouseLeave={closeDetail}>
-      <div onMouseEnter={showDetail} className={styles.layout}>
+    <div onClick={handleDetail}>
+      <div className={styles.layout}>
         <span className={styles.name}>{props.name}</span>
       </div>
       {detail ? <PriceFilter /> : null}
