@@ -49,9 +49,9 @@ const Header = () => {
       </ul>
       <div className={styles.menu} onClick={handleSideBar}>
         {sideBar ? (
-          <MdClear size={40} color="gray" />
+          <MdClear size={35} color="gray" />
         ) : (
-          <MdMenu size={40} color="gray" />
+          <MdMenu size={35} color="gray" />
         )}
       </div>
       {sideBar ? <SideBar /> : null}
