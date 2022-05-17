@@ -1,0 +1,29 @@
+.layout {
+  width: 70vw;
+  height: 100vh;
+
+  background-color: hsl(0, 0%, 100%);
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  animation: showSideBar 0.2s linear forwards;
+  box-shadow: rgb(4 17 29 / 25%) 0px 5px 5px 5px;
+}
+
+.background {
+  width: 100vw;
+  top: 72px;
+  height: 100vh;
+  background-color: rgba(4, 17, 29, 0.3);
+  z-index: 99;
+  position: absolute;
+}
+
+@keyframes showSideBar {
+  from {
+    width: 0vw;
+  }
+  to {
+    width: 70vw;
+  }
+}

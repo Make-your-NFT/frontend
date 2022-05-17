@@ -31,3 +31,10 @@
     box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 5px;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .layout {
+    width: 250px;
+    height: 350px;
+  }
+}

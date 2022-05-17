@@ -11,26 +11,22 @@ const Filter = () => {
 
   const handleResize = () => {
     window.innerWidth <= 960 ? setFilterClick(true) : setFilterClick(false);
-  }
+  };
 
   const handleOpenFilter = () => {
-    if(filterClick){
-      console.log("open!")
+    if (filterClick) {
       openFilter ? setOpenFilter(false) : setOpenFilter(true);
     }
-    else{
-      console.log("close!")
-    }
-  }
-  
-  useEffect(() =>{
+  };
+
+  useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className={styles.layout}>
@@ -50,14 +46,13 @@ const Filter = () => {
         />
       </div>
       {!filterClick || openFilter ? (
-              <div className={styles.filterList} ref={filterRef}>
-              <FilterBox name="가격1" />
-      <FilterBox name="가격2" />
-      <FilterBox name="가격3" />
-      <FilterBox name="가격4" />
-      </div>
+        <div className={styles.filterList} ref={filterRef}>
+          <FilterBox name="가격1" />
+          <FilterBox name="가격2" />
+          <FilterBox name="가격3" />
+          <FilterBox name="가격4" />
+        </div>
       ) : null}
-
     </div>
   );
 };

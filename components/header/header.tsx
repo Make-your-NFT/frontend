@@ -4,9 +4,17 @@ import { shirt } from "@public/images";
 import SearchBar from "./searchBar";
 import Link from "next/link";
 import { RiAccountCircleLine } from "react-icons/ri";
-import { MdMenu } from "react-icons/md";
+import { MdMenu, MdClear } from "react-icons/md";
+import { useState } from "react";
+import SideBar from "@components/sidebar/sideBar";
 
 const Header = () => {
+  const [sideBar, setSideBar] = useState(false);
+
+  const handleSideBar = () => {
+    sideBar ? setSideBar(false) : setSideBar(true);
+  };
+
   return (
     <div className={styles.layout}>
       <div className={styles.brand}>
@@ -39,9 +47,14 @@ const Header = () => {
           </li>
         </div>
       </ul>
-      <div className={styles.menu}>
-        <MdMenu size={40} color="gray" />
+      <div className={styles.menu} onClick={handleSideBar}>
+        {sideBar ? (
+          <MdClear size={40} color="gray" />
+        ) : (
+          <MdMenu size={40} color="gray" />
+        )}
       </div>
+      {sideBar ? <SideBar /> : null}
     </div>
   );
 };

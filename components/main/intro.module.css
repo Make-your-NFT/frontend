@@ -116,62 +116,33 @@
   }
 }
 
-@media (min-width: 1281px) {
-}
-
-/*
-##Device = Laptops, Desktops
-##Screen = B/w 1025px to 1280px
-##Device = 랩탑, 데스크탑
-##Screen = 1025px에서 1280px 사이
-*/
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-}
-
-/*
-##Device = Tablets, Ipads (portrait),
-##Screen = B/w 768px to 1024px
-##Device = 태블릿, 아이패드(세로),
-##Screen = 768px에서 1024px 사이
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) {
-}
-
-/*
-##Device = Tablets, Ipads (landscape)
-##Screen = B/w 768px to 1024px
-##Device = 태블릿, 아이패드(가로)
-##Screen = 768px에서 1024px 사이
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-}
-
-/*
-##Device = Low Resolution Tablets, Mobiles (Landscape)
-##Screen = B/w 481px to 767px
-##Device = 저해상도 태블릿, 모바일(가로)
-##Screen = 481px에서 767px 사이
-*/
-
 @media screen and (max-width: 768px) {
   .h1 {
-      font-size: 8vw;
-      color: black;
-      position: relative;
-      text-align: left;
-      margin: 0;
-      font-weight: 700;
-    }
-  
-    .h3 {
-      font-size: 3vw;
-      color: rgb(49, 49, 49);
-      position: relative;
-      text-align: left;
-      margin: 0;
-    }
-  
+    font-size: 8vw;
+    color: black;
+    position: relative;
+    text-align: left;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .h3 {
+    font-size: 3.4vw;
+    color: rgb(49, 49, 49);
+    position: relative;
+    text-align: left;
+    margin: 0;
+  }
+
+  .introText {
+    padding: 25px 5px 25px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .createButton,
+  .exploreButton {
+    width: 120px;
+  }
 }

@@ -17,6 +17,14 @@ const IntroSlider = () => {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          autoplay: false,
+        },
+      },
+    ],
   };
 
   return (
@@ -25,7 +33,11 @@ const IntroSlider = () => {
         {assets.map((asset, index) => {
           return (
             <React.Fragment key={index}>
-              <IntroAsset title={asset["title"]} author={`${asset["author"]}${index}`} image={asset["image"]}/>
+              <IntroAsset
+                title={asset["title"]}
+                author={`${asset["author"]}${index}`}
+                image={asset["image"]}
+              />
             </React.Fragment>
           );
         })}
