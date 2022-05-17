@@ -25,7 +25,7 @@ const SearchBar = () => {
         ref={searchRef}
         onChange={handleTyping}
         className={styles.search}
-        placeholder="Search items, collections, and accounts"
+        placeholder="검색"
       />
       {search.length > 0 ? (
         <MdClear
