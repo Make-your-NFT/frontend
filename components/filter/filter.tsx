@@ -8,6 +8,7 @@ const Filter = () => {
   const [filterClick, setFilterClick] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
+  const filterBoxRef = useRef<HTMLDivElement[]>([]);
 
   const handleResize = () => {
     window.innerWidth <= 960 ? setFilterClick(true) : setFilterClick(false);
@@ -47,10 +48,18 @@ const Filter = () => {
       </div>
       {!filterClick || openFilter ? (
         <div className={styles.filterList} ref={filterRef}>
-          <FilterBox name="가격1" />
-          <FilterBox name="가격2" />
-          <FilterBox name="가격3" />
-          <FilterBox name="가격4" />
+          <div ref={(el) => {}}>
+            <FilterBox name="가격1" />
+          </div>
+          <div>
+            <FilterBox name="가격2" />
+          </div>
+          <div>
+            <FilterBox name="가격3" />
+          </div>
+          <div>
+            <FilterBox name="가격4" />
+          </div>
         </div>
       ) : null}
     </div>
