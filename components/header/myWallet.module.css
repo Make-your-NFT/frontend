@@ -11,8 +11,16 @@
   top: 78px;
   right: 1vw;
   animation: show 0.2s linear forwards;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
 }
 
+.background {
+  width: 100vw;
+  top: 72px;
+  height: 100vh;
+  background-color: rgba(4, 17, 29, 0.3);
+  position: absolute;
+}
 .h1 {
   font-size: 22px;
   font-weight: 700;
