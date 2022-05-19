@@ -38,12 +38,12 @@ const Header = () => {
   return (
     <div className={styles.layout}>
       <div className={styles.brand}>
-        <div className={styles.brandName}>
-          <Link href={"/"}>
+        <Link href={"/"}>
+          <div className={styles.brandName}>
             <Image src={shirt} width={40} height={40} />
-          </Link>
-          Make Your NFT
-        </div>
+            Make Your NFT
+          </div>
+        </Link>
       </div>
       <SearchBar />
       <ul className={styles.navBar}>
