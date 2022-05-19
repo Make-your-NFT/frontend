@@ -5,7 +5,7 @@ import SearchBar from "./searchBar";
 import Link from "next/link";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { MdMenu, MdClear } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideBar from "@components/sidebar/sideBar";
 import { useWeb3React } from "@web3-react/core";
 import MyWallet from "./myWallet";
@@ -21,6 +21,8 @@ const Header = () => {
   const goToProfile = () => {
     if (active) {
       router.push("/profile");
+    } else {
+      alert("먼저 지갑을 연동해주세요!");
     }
   };
   const handleSideBar = () => {
