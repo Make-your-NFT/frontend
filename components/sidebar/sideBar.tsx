@@ -10,7 +10,7 @@ const SideBar = () => {
     router.push(link);
   };
 
-    const handleConnect = () => {
+  const handleConnect = () => {
     if (active) {
       deactivate();
       return;
@@ -30,11 +30,10 @@ const SideBar = () => {
     <div className={styles.background}>
       <div className={styles.layout}>
         <ul className={styles.navBar}>
-
           <div className={styles.connectButtonLayout}>
-                        <button className={styles.connectButton} onClick={handleConnect}>
-          {!active ? "연동하기" : "연동 해제"}
-        </button>
+            <button className={styles.connectButton} onClick={handleConnect}>
+              {!active ? "연동하기" : "연동 해제"}
+            </button>
           </div>
 
           <li
@@ -48,7 +47,7 @@ const SideBar = () => {
           <li
             className={styles.navItem}
             onClick={() => {
-              movePage("/");
+              movePage("/profile");
             }}
           >
             Create
