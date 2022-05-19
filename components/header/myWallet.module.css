@@ -67,3 +67,13 @@
     height: 40vh;
   }
 }
+
+@keyframes disappear {
+  from {
+    height: 40vh;
+  }
+
+  to {
+    height: 0vh;
+  }
+}
