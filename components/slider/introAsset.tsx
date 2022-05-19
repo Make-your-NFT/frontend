@@ -1,6 +1,7 @@
 import styles from "components/slider/introAsset.module.css";
 import { shirt } from "@public/images";
 import Image, { StaticImageData } from "next/image";
+import { useEffect } from "react";
 
 interface assetProps {
   title: string;
@@ -9,6 +10,7 @@ interface assetProps {
 }
 
 const IntroAsset = (props: assetProps) => {
+
   return (
     <div className={styles.layout}>
       <Image src={props.image} width={400} height={400} />

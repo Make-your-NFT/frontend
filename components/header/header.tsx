@@ -5,11 +5,12 @@ import SearchBar from "./searchBar";
 import Link from "next/link";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { MdMenu, MdClear } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SideBar from "@components/sidebar/sideBar";
 import { useWeb3React } from "@web3-react/core";
-import { injected } from "@utils/connectors";
 import MyWallet from "./myWallet";
+import { BsWallet } from "react-icons/bs";
+
 
 const Header = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
@@ -52,7 +53,7 @@ const Header = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <div onMouseEnter={openWallet}>
+            <div>
               {active ? (
                 <RiAccountCircleLine
                   className={styles.navIcon}
@@ -68,13 +69,22 @@ const Header = () => {
               )}
             </div>
           </li>
-          {showWallet ? (
+          <li className={styles.navItem}>
+          <div onMouseEnter={openWallet}>
+            <BsWallet size={35} color="gray"/>
+            
+          </div>
+        </li>
+          
+        </div>
+                  {showWallet ? (
             <div onMouseLeave={closeWallet}>
               <MyWallet />
             </div>
           ) : null}
-        </div>
+        
       </ul>
+      
       <div className={styles.menu} onClick={handleSideBar}>
         {sideBar ? (
           <MdClear size={35} color="gray" />

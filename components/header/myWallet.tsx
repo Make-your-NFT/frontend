@@ -24,14 +24,29 @@ const MyWallet = () => {
 
   return (
     <div style={{ position: "relative" }}>
-      <div className={styles.background} />
-      <div className={styles.layout}>
-        <BsWallet size={80} />
+      {active ? (
+        <div className={styles.layout}>
+
+          <div className={styles.addressLayout}>
+                              <BsWallet size={40} color="green" />
+
+          <p className={styles.address}>{account}</p>
+          <span className={styles.h1}>My Wallet</span>            
+          </div>
+
+                  <button className={styles.connectButton} onClick={handleConnect}>
+          연동 해제
+        </button>
+        </div>
+      ) : (
+              <div className={styles.layout}>
+        <BsWallet size={40} color="#ffab1c" />
         <span className={styles.h1}>지갑을 연동해주세요</span>
         <button className={styles.connectButton} onClick={handleConnect}>
           연동하기
         </button>
       </div>
+      )}
     </div>
   );
 };

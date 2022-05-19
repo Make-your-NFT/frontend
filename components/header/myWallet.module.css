@@ -1,5 +1,6 @@
 .layout {
   position: absolute;
+  min-width: 15vw;
   width: 20vw;
   height: 40vh;
   display: flex;
@@ -14,13 +15,19 @@
   box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
 }
 
-.background {
-  width: 100vw;
-  top: 72px;
-  height: 100vh;
-  background-color: rgba(4, 17, 29, 0.3);
-  position: absolute;
+.addressLayout{
+    display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
 }
+
+.address{
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(175, 168, 168);
+}
+
 .h1 {
   font-size: 22px;
   font-weight: 700;
