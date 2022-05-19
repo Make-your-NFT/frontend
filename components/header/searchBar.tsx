@@ -14,7 +14,6 @@ const SearchBar = () => {
     }
     else{
           click ? setClick(false) : setClick(true);
-
     }
   }
   const handleTyping = (e: any) => {
