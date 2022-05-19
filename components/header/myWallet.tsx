@@ -1,13 +1,14 @@
 import styles from "components/header/myWallet.module.css";
-import { BsWallet } from "react-icons/bs";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "@utils/connectors";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 const MyWallet = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
   const walletRef = useRef<HTMLDivElement | null>(null);
 
   const handleConnect = () => {
+    console.log(walletRef.current);
     if (active) {
       deactivate();
       return;
@@ -18,8 +19,6 @@ const MyWallet = () => {
       if (errorText === error.message) {
         window.open("https://metamask.io/download.html");
       }
-
-      console.log(error);
     });
   };
 
@@ -27,26 +26,30 @@ const MyWallet = () => {
     <div style={{ position: "relative" }}>
       {active ? (
         <div className={styles.layout} ref={walletRef}>
-
           <div className={styles.addressLayout}>
-                              <BsWallet size={40} color="green" />
+            <MdOutlineAccountBalanceWallet size={60} color="green" />
 
-          <p className={styles.address}>{account}</p>
-          <span className={styles.h1}>My Wallet</span>            
+            <p className={styles.address}>{account}</p>
+            <span className={styles.h1}>My Wallet</span>
           </div>
 
-                  <button className={styles.connectButton} onClick={handleConnect}>
-          연동 해제
-        </button>
+          <button className={styles.connectButton} onClick={handleConnect}>
+            연동 해제
+          </button>
         </div>
       ) : (
-              <div className={styles.layout} ref={walletRef}>
-        <BsWallet size={40} color="#ffab1c" />
-        <span className={styles.h1}>지갑을 연동해주세요</span>
-        <button className={styles.connectButton} onClick={handleConnect}>
-          연동하기
-        </button>
-      </div>
+        <div className={styles.layout} ref={walletRef}>
+          <div className={styles.addressLayout}>
+            <MdOutlineAccountBalanceWallet size={60} color="#ffab1c" />
+
+            <p className={styles.h2}>더 많은 NFT의 탐험을 위해</p>
+
+            <span className={styles.h1}>지갑을 연동해주세요</span>
+          </div>
+          <button className={styles.connectButton} onClick={handleConnect}>
+            연동하기
+          </button>
+        </div>
       )}
     </div>
   );

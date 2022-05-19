@@ -1,6 +1,6 @@
 .layout {
   position: absolute;
-  min-width: 15vw;
+  min-width: 20vw;
   width: 20vw;
   height: 40vh;
   display: flex;
@@ -15,22 +15,32 @@
   box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
 }
 
-.addressLayout{
-    display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+.addressLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.address{
+.address {
   font-size: 14px;
   font-weight: 600;
   color: rgb(175, 168, 168);
+  max-width: 15vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .h1 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
+}
+
+.h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(153, 153, 153);
 }
 
 .connectButton {

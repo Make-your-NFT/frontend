@@ -9,14 +9,20 @@ import { useState } from "react";
 import SideBar from "@components/sidebar/sideBar";
 import { useWeb3React } from "@web3-react/core";
 import MyWallet from "./myWallet";
-import { BsWallet } from "react-icons/bs";
-
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
   const [sideBar, setSideBar] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
+  const router = useRouter();
 
+  const goToProfile = () => {
+    if (active) {
+      router.push("/profile");
+    }
+  };
   const handleSideBar = () => {
     sideBar ? setSideBar(false) : setSideBar(true);
   };
@@ -53,38 +59,27 @@ const Header = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <div>
-              {active ? (
-                <RiAccountCircleLine
-                  className={styles.navIcon}
-                  size={40}
-                  color="green"
-                />
-              ) : (
-                <RiAccountCircleLine
-                  className={styles.navIcon}
-                  size={40}
-                  color="gray"
-                />
-              )}
+            <div onClick={goToProfile}>
+              <RiAccountCircleLine
+                className={styles.navIcon}
+                size={40}
+                color="gray"
+              ></RiAccountCircleLine>
             </div>
           </li>
           <li className={styles.navItem}>
-          <div onMouseEnter={openWallet}>
-            <BsWallet size={35} color="gray"/>
-            
-          </div>
-        </li>
-          
-        </div>
-                  {showWallet ? (
-            <div onMouseLeave={closeWallet}>
-              <MyWallet />
+            <div onMouseEnter={openWallet}>
+              <MdOutlineAccountBalanceWallet size={40} color="gray" />
             </div>
-          ) : null}
-        
+          </li>
+        </div>
+        {showWallet ? (
+          <div onMouseLeave={closeWallet}>
+            <MyWallet />
+          </div>
+        ) : null}
       </ul>
-      
+
       <div className={styles.menu} onClick={handleSideBar}>
         {sideBar ? (
           <MdClear size={35} color="gray" />

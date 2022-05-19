@@ -1,5 +1,7 @@
+import Index from "@components/profile";
+
 const Profile = () => {
-  return <div></div>;
+  return <Index />;
 };
 
 export default Profile;
