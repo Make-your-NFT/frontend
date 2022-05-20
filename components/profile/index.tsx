@@ -1,6 +1,6 @@
 import Layout from "@components/layout";
 import styles from "components/profile/index.module.css";
-import MenuList from "./menuList";
+import MyAssets from "./myAssets";
 import UserInfo from "./userInfo";
 
 const Index = () => {
@@ -8,7 +8,7 @@ const Index = () => {
     <Layout>
       <div className={styles.layout}>
         <UserInfo />
-        <MenuList />
+        <MyAssets />
       </div>
     </Layout>
   );

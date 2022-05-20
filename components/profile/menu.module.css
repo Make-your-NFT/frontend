@@ -1,0 +1,25 @@
+.layout {
+  width: 140px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid gray;
+
+  font-size: 14px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.layout:hover {
+  animation: hover 0.1s linear forwards;
+}
+
+@keyframes hover {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+  to {
+    background-color: rgb(224, 224, 224);
+  }
+}
