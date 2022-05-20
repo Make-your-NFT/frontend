@@ -1,4 +1,4 @@
-import styles from "components/explore/asset.module.css";
+import styles from "components/asset/asset.module.css";
 import { shirt } from "@public/images";
 import Image from "next/image";
 

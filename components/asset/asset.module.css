@@ -1,5 +1,5 @@
 .layout {
-  width: 320px;
+  width: calc(20vw - 60px);
   border: 1px solid rgb(211, 204, 204);
   padding: 10px;
   height: fit-content;

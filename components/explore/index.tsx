@@ -1,7 +1,7 @@
 import Layout from "@components/layout";
 import styles from "components/explore/index.module.css";
 import Filter from "components/filter/filter";
-import Asset from "./asset";
+import Asset from "components/asset/asset";
 import { assets } from "testSample/assets";
 import AssetSlider from "@components/slider/assetSlider";
 
@@ -16,7 +16,13 @@ const Index = () => {
           </div>
           <div className={styles.assetsLayout}>
             {assets.map((asset, index) => {
-              return <Asset key={index} title={asset["title"]} author={asset["author"]} />;
+              return (
+                <Asset
+                  key={index}
+                  title={asset["title"]}
+                  author={asset["author"]}
+                />
+              );
             })}
           </div>
         </div>

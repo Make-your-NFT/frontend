@@ -2,11 +2,15 @@ import styles from "components/profile/menu.module.css";
 
 interface menuProps {
   tag: string;
+  children: JSX.Element;
 }
 const Menu = (props: menuProps) => {
   return (
     <div className={styles.layout}>
-      <div>{props.tag}</div>
+      <div className={styles.menuLayout}>
+        {props.children}
+        <div>{props.tag}</div>
+      </div>
     </div>
   );
 };

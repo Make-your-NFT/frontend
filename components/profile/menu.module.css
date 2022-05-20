@@ -2,7 +2,7 @@
   width: 140px;
   height: 60px;
   background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(214, 214, 214);
 
   font-size: 14px;
   text-align: center;
@@ -11,10 +11,20 @@
   cursor: pointer;
 }
 
+.menuLayout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+
 .layout:hover {
   animation: hover 0.1s linear forwards;
 }
 
+.myItemClicked {
+  color: rgb(255, 0, 0);
+}
 @keyframes hover {
   from {
     background-color: rgb(255, 255, 255);
