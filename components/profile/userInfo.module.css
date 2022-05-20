@@ -1,30 +1,39 @@
 .layout {
   width: 100vw;
-  height: calc(50vh - 72px);
+  height: 40vh;
+}
 
+.gradientBackground {
+  width: 100vw;
+  height: 35vh;
+  background: #2980b9;
   border-radius: 0px 0px 50% 50%;
-  background: #2980b9; /* fallback for old browsers */
   box-shadow: rgb(4 17 29 / 25%) 0px 0px 5px 6px;
 
-  background: linear-gradient(
-    to right,
-    #cb46ec,
-    #826dfa,
-    #51b1f1
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #cb46ec, #826dfa, #51b1f1);
 }
 
 .profileLayout {
-  height: 52vh;
+  width: 100vw;
+
+  height: 43vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
+.profileInfoLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
 .profileImage {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background-color: rgb(197, 197, 197);
   border-radius: 50%;
   border: 4px solid rgb(255, 255, 255);
@@ -34,13 +43,19 @@
   align-items: center;
 }
 
+.name {
+  font-size: 26px;
+  font-weight: 600;
+  color: white;
+}
+
 .profileImage:hover {
   background-color: rgb(184, 184, 184);
 }
 
 .balanceLayout {
   width: 30vw;
-  height: 15vh;
+  height: 12vh;
   border-radius: 10px;
   background-color: white;
   box-shadow: rgb(4 17 29 / 25%) 0px 2px 20px 5px;
@@ -51,7 +66,7 @@
 }
 
 .balanceInfoTitle {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: rgb(148, 148, 148);
 }
@@ -61,7 +76,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: black;
 }
@@ -87,9 +102,9 @@
   }
 
   .balanceInfoTitle {
-    font-size: 22px;
+    font-size: 20px;
   }
   .balanceInfoText {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
