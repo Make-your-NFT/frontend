@@ -9,7 +9,7 @@ const Menu = (props: menuProps) => {
     <div className={styles.layout}>
       <div className={styles.menuLayout}>
         {props.children}
-        <div>{props.tag}</div>
+        <div className={styles.menuName}>{props.tag}</div>
       </div>
     </div>
   );

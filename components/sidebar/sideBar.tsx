@@ -2,6 +2,9 @@ import styles from "components/sidebar/sideBar.module.css";
 import { useRouter } from "next/router";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "@utils/connectors";
+import { RiAccountCircleLine } from "react-icons/ri";
+import { FiMap } from "react-icons/fi";
+import { MdCreate } from "react-icons/md";
 const SideBar = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
 
@@ -35,23 +38,41 @@ const SideBar = () => {
               {!active ? "연동하기" : "연동 해제"}
             </button>
           </div>
-
-          <li
-            className={styles.navItem}
-            onClick={() => {
-              movePage("/explore");
-            }}
-          >
-            Explore
-          </li>
-          <li
-            className={styles.navItem}
-            onClick={() => {
-              movePage("/profile");
-            }}
-          >
-            Create
-          </li>
+          {active ? (
+            <div className={styles.navItemLayout}>
+              <li
+                className={styles.navItem}
+                onClick={() => {
+                  movePage("/profile");
+                }}
+              >
+                Profile
+              </li>
+              <RiAccountCircleLine size={40} color="gray" />
+            </div>
+          ) : null}
+          <div className={styles.navItemLayout}>
+            <li
+              className={styles.navItem}
+              onClick={() => {
+                movePage("/explore");
+              }}
+            >
+              Explore
+            </li>
+            <FiMap size={40} color="gray" />
+          </div>
+          <div className={styles.navItemLayout}>
+            <li
+              className={styles.navItem}
+              onClick={() => {
+                movePage("/");
+              }}
+            >
+              Create
+            </li>
+            <MdCreate size={40} color="gray" />
+          </div>
         </ul>
         <button className={styles.account}>로그인</button>
       </div>

@@ -1,5 +1,4 @@
 .layout {
-  width: calc(20vw - 60px);
   border: 1px solid rgb(211, 204, 204);
   padding: 10px;
   height: fit-content;
@@ -20,7 +19,7 @@
 
 @media screen and (max-width: 768px) {
   .layout {
-    width: 43vw;
+    max-width: 80vw;
     border: 1px solid rgb(211, 204, 204);
     padding: 10px;
     height: auto;

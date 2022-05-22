@@ -3,7 +3,6 @@
   height: 60px;
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(214, 214, 214);
-
   font-size: 14px;
   text-align: center;
   line-height: 60px;
@@ -14,16 +13,18 @@
 .menuLayout {
   display: flex;
   align-items: center;
-  gap: 10px;
   padding-left: 10px;
+  padding-right: 10px;
+  gap: 10px;
 }
 
 .layout:hover {
   animation: hover 0.1s linear forwards;
 }
 
-.myItemClicked {
-  color: rgb(255, 0, 0);
+.menuName {
+  color: gray;
+  text-align: left;
 }
 @keyframes hover {
   from {
@@ -31,5 +32,16 @@
   }
   to {
     background-color: rgb(224, 224, 224);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .layout {
+    border-right: 1px solid rgb(214, 214, 214);
+    min-width: 140px;
+  }
+  .menuName {
+    min-width: 60px;
+    text-align: center;
   }
 }

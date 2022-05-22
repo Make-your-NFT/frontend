@@ -8,29 +8,26 @@ import { assets } from "testSample/assets";
 import Asset from "@components/asset/asset";
 
 const MyAssets = () => {
-  const [choosedMenu, setChoosedMenu] = useState("내 아이템");
-
-  const handleChoosedMenu = (e: any) => {
-    setChoosedMenu(e.target.innerText);
-  };
-
   return (
     <div className={styles.layout}>
       <div className={styles.myAssetsLayout}>
-        <div className={styles.menuesLayout} onClick={handleChoosedMenu}>
+        <div className={styles.menuesLayout}>
           <Menu tag="내 아이템">
-            <IoDiamond size={20} color="gray" />
+            <IoDiamond size={20} color="#7edaf7" />
           </Menu>
           <Menu tag="구매한 아이템">
-            <FiGift size={20} color="gray" />
+            <FiGift size={20} color="lightgreen" />
           </Menu>
           <Menu tag="찜">
-            <FaHeart size={20} color="gray" />
+            <FaHeart size={20} color="red" />
+          </Menu>
+          <Menu tag="찜">
+            <FaHeart size={20} color="red" />
           </Menu>
         </div>
         <div className={styles.assetListLayout}>
           <div className={styles.choosedMenuLayout}>
-            <span className={styles.choosedMenu}>{choosedMenu}</span>
+            <span className={styles.assetCountTitle}>총 개수</span>
             <span className={styles.assetCount}>15</span>
           </div>
           <div className={styles.myAssets}>

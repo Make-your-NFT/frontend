@@ -22,6 +22,15 @@
   position: absolute;
 }
 
+.navItemLayout {
+  width: 100%;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
 .navBar {
   display: flex;
   flex-direction: column;
@@ -39,9 +48,7 @@
   color: rgba(4, 17, 29, 0.75);
   display: flex;
   align-items: center;
-  padding: 20px;
   cursor: pointer;
-  border: 1px solid rgb(214, 214, 214);
 }
 
 .navItem:hover {
@@ -64,10 +71,10 @@
   padding: 10px;
 }
 
-.connectButtonLayout{
+.connectButtonLayout {
   width: 100%;
   padding: 30px;
-  
+  border-bottom: 1px solid rgb(214, 214, 214);
 }
 
 .connectButton {
