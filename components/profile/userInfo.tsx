@@ -5,28 +5,50 @@ import Image from "next/image";
 
 const UserInfo = () => {
   const [profileImage, setProfileImage] = useState("");
-  const handleFile = (e : any) => {
-    console.log(e.target.files)
+  const [hoverProfileImage, setHoverProfileImage] = useState(false);
+
+  const handleHover = () => {
+    hoverProfileImage
+      ? setHoverProfileImage(false)
+      : setHoverProfileImage(true);
+  };
+  const handleFile = (e: any) => {
+    console.log(e.target.files);
     setProfileImage(URL.createObjectURL(e.target.files[0]));
-  }
+  };
 
   return (
     <div className={styles.layout}>
       <div className={styles.gradientBackground}>
         <div className={styles.profileLayout}>
           <div className={styles.profileInfoLayout}>
-            <div className={styles.profileImage}>
+            <div
+              className={styles.profileImage}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHover}
+            >
               {profileImage.length > 0 ? (
-                  <Image className={styles.userProfileImage} src={profileImage} width={110} height={110} />
-              ) : (
-                <div>
-                  <input className={styles.profileImageInput} type="file" id="file"  accept='image/png, image/jpeg' onChange={handleFile}/>
-                  <label htmlFor="file" style={{cursor: "pointer"}}>
-                    <BsFillPencilFill size={40} color="gray"/>
+                <Image
+                  className={styles.userProfileImage}
+                  src={profileImage}
+                  width={110}
+                  height={110}
+                />
+              ) : null}
+              {hoverProfileImage ? (
+                <div className={styles.hoverInput}>
+                  <input
+                    className={styles.profileImageInput}
+                    type="file"
+                    id="file"
+                    accept="image/png, image/jpeg"
+                    onChange={handleFile}
+                  />
+                  <label htmlFor="file" className={styles.inputLabel}>
+                    <BsFillPencilFill size={40} color="gray" />
                   </label>
                 </div>
-              ) }
-
+              ) : null}
             </div>
             <span className={styles.name}>김정현</span>
           </div>
