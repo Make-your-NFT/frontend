@@ -56,7 +56,7 @@ const Header = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link className={styles.navLink} href={"/"}>
+            <Link className={styles.navLink} href={"/create"}>
               Create
             </Link>
           </li>

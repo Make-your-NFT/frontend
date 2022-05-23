@@ -1,9 +1,14 @@
 import styles from "components/profile/userInfo.module.css";
 import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from "react";
+import Image from "next/image";
 
 const UserInfo = () => {
-  const [isProfileImage, setIsProfileImage] = useState(false);
+  const [profileImage, setProfileImage] = useState("");
+  const handleFile = (e : any) => {
+    console.log(e.target.files)
+    setProfileImage(URL.createObjectURL(e.target.files[0]));
+  }
 
   return (
     <div className={styles.layout}>
@@ -11,7 +16,17 @@ const UserInfo = () => {
         <div className={styles.profileLayout}>
           <div className={styles.profileInfoLayout}>
             <div className={styles.profileImage}>
-              <BsFillPencilFill size={40} color="gray" />
+              {profileImage.length > 0 ? (
+                  <Image className={styles.userProfileImage} src={profileImage} width={110} height={110} />
+              ) : (
+                <div>
+                  <input className={styles.profileImageInput} type="file" id="file"  accept='image/png, image/jpeg' onChange={handleFile}/>
+                  <label htmlFor="file" style={{cursor: "pointer"}}>
+                    <BsFillPencilFill size={40} color="gray"/>
+                  </label>
+                </div>
+              ) }
+
             </div>
             <span className={styles.name}>김정현</span>
           </div>
