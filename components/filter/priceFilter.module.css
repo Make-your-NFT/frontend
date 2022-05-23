@@ -1,6 +1,6 @@
 .layout {
   width: 100%;
-  height: 200px;
+  height: 20vh;
   background-color: #fbfdff;
   /* animation: showDetail 0.2s linear forwards; */
   display: flex;
@@ -58,3 +58,12 @@
     height: 200px;
   }
 } */
+
+@media screen and (max-width: 768px){
+  .applyButton {
+      width: calc(45% - 20px);
+      padding: 10px 0px;
+      font-size: 16px;
+    }
+  
+}

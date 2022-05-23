@@ -15,6 +15,7 @@ const Filter = () => {
   };
 
   const handleOpenFilter = () => {
+    console.log("filter!")
     if (filterClick) {
       openFilter ? setOpenFilter(false) : setOpenFilter(true);
     }
@@ -48,7 +49,7 @@ const Filter = () => {
       </div>
       {!filterClick || openFilter ? (
         <div className={styles.filterList} ref={filterRef}>
-          <div ref={(el) => {}}>
+          <div>
             <FilterBox name="가격1" />
           </div>
           <div>

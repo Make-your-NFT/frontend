@@ -13,8 +13,8 @@ const FilterBox = (props: filterBoxProps) => {
   };
 
   return (
-    <div onClick={handleDetail}>
-      <div className={styles.layout}>
+    <div >
+      <div className={styles.layout} onClick={handleDetail}>
         <span className={styles.name}>{props.name}</span>
       </div>
       {detail ? <PriceFilter /> : null}
