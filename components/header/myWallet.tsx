@@ -2,15 +2,15 @@ import styles from "components/header/myWallet.module.css";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "@utils/connectors";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 const MyWallet = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
   const walletRef = useRef<HTMLDivElement | null>(null);
 
   const handleConnect = () => {
-    console.log(walletRef.current);
     if (active) {
       deactivate();
+      window.sessionStorage.setItem("active", "false");
       return;
     }
     const errorText: string =
@@ -20,6 +20,7 @@ const MyWallet = () => {
         window.open("https://metamask.io/download.html");
       }
     });
+    window.sessionStorage.setItem("active", "true");
   };
 
   return (

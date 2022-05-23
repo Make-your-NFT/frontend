@@ -11,12 +11,21 @@ import { useWeb3React } from "@web3-react/core";
 import MyWallet from "./myWallet";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { useRouter } from "next/router";
+import { injected } from "@utils/connectors";
 
 const Header = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
   const [sideBar, setSideBar] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const isActive = window.sessionStorage.getItem("active");
+    console.log(isActive);
+    if (isActive) {
+      activate(injected);
+    }
+  }, []);
 
   const goToProfile = () => {
     if (active) {
