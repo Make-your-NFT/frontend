@@ -59,7 +59,7 @@ const Filter = () => {
             <FilterBox name="가격3" />
           </div>
           <div>
-            <FilterBox name="가격4" />
+            <FilterBox name="브랜드" />
           </div>
         </div>
       ) : null}

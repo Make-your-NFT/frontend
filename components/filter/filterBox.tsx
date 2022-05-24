@@ -1,5 +1,6 @@
 import styles from "components/filter/filterBox.module.css";
 import { useState } from "react";
+import BrandFilter from "./brandFilter";
 import PriceFilter from "./priceFilter";
 interface filterBoxProps {
   name: string;
@@ -7,7 +8,10 @@ interface filterBoxProps {
 
 const FilterBox = (props: filterBoxProps) => {
   const [detail, setDetail] = useState(false);
-
+  const filterList = {
+    가격 : <PriceFilter/>,
+    브랜드 : <BrandFilter/>
+  }
   const handleDetail = () => {
     detail ? setDetail(false) : setDetail(true);
   };
@@ -17,7 +21,7 @@ const FilterBox = (props: filterBoxProps) => {
       <div className={styles.layout} onClick={handleDetail}>
         <span className={styles.name}>{props.name}</span>
       </div>
-      {detail ? <PriceFilter /> : null}
+      {detail ? <PriceFilter/>: null}
     </div>
   );
 };
