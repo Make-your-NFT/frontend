@@ -3,6 +3,8 @@ import filterBoxStyles from "components/filter/filterBox.module.css";
 import FilterBox from "./filterBox";
 import { MdFilterAlt } from "react-icons/md";
 import { useEffect, useState, useRef } from "react";
+import PriceFilter from "./priceFilter";
+import BrandFilter from "./brandFilter";
 
 const Filter = () => {
   const [filterClick, setFilterClick] = useState(false);
@@ -15,7 +17,7 @@ const Filter = () => {
   };
 
   const handleOpenFilter = () => {
-    console.log("filter!")
+    console.log("filter!");
     if (filterClick) {
       openFilter ? setOpenFilter(false) : setOpenFilter(true);
     }
@@ -50,16 +52,10 @@ const Filter = () => {
       {!filterClick || openFilter ? (
         <div className={styles.filterList} ref={filterRef}>
           <div>
-            <FilterBox name="가격1" />
+            <FilterBox name="가격" children={<PriceFilter />} />
           </div>
           <div>
-            <FilterBox name="가격2" />
-          </div>
-          <div>
-            <FilterBox name="가격3" />
-          </div>
-          <div>
-            <FilterBox name="브랜드" />
+            <FilterBox name="브랜드" children={<BrandFilter />} />
           </div>
         </div>
       ) : null}

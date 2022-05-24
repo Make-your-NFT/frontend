@@ -4,7 +4,7 @@
   padding: 10px;
   height: fit-content;
   border-radius: 10px;
-  width: 23.4vw;
+  width: 24.85vw;
   margin: 0 15px;
   justify-content: space-around;
 }
@@ -32,19 +32,6 @@
   max-width: 250px;
 }
 
-@media screen and (max-width: 1800px) {
-  .layout {
-    display: flex;
-    border: 1px solid rgb(211, 204, 204);
-    padding: 10px;
-    height: fit-content;
-    border-radius: 10px;
-    width: 23vw;
-    margin: 0 15px;
-    justify-content: space-around;
-  }
-}
-
 @media screen and (max-width: 1500px) {
   .layout {
     display: flex;
@@ -52,7 +39,7 @@
     padding: 10px;
     height: fit-content;
     border-radius: 10px;
-    width: calc(30vw - 25px);
+    width: calc(24.2vw);
     margin: 0 15px;
     justify-content: space-around;
   }
@@ -65,7 +52,7 @@
     padding: 10px;
     height: fit-content;
     border-radius: 10px;
-    width: calc(40vw - 60px);
+    width: calc(42vw - 55px);
 
     margin: 0 15px;
     justify-content: space-around;

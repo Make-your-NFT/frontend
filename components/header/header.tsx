@@ -12,11 +12,13 @@ import MyWallet from "./myWallet";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import { useRouter } from "next/router";
 import { injected } from "@utils/connectors";
+import PopupMenu from "@components/popupMenu/popupMenu";
 
 const Header = () => {
   const { chainId, account, active, activate, deactivate } = useWeb3React();
   const [sideBar, setSideBar] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
+  const [showPopupMenu, setShowPopupMenu] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,10 +42,20 @@ const Header = () => {
 
   const openWallet = () => {
     setShowWallet(true);
+    setShowPopupMenu(false);
   };
 
   const closeWallet = () => {
     setShowWallet(false);
+  };
+
+  const openPopupMenu = () => {
+    setShowPopupMenu(true);
+    setShowWallet(false);
+  };
+
+  const closePopupMenu = () => {
+    setShowPopupMenu(false);
   };
 
   return (
@@ -70,7 +82,7 @@ const Header = () => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <div onClick={goToProfile}>
+            <div onClick={goToProfile} onMouseEnter={openPopupMenu}>
               <RiAccountCircleLine
                 className={styles.navIcon}
                 size={40}
@@ -87,6 +99,11 @@ const Header = () => {
         {showWallet ? (
           <div onMouseLeave={closeWallet}>
             <MyWallet />
+          </div>
+        ) : null}
+        {showPopupMenu ? (
+          <div onMouseLeave={closePopupMenu}>
+            <PopupMenu />
           </div>
         ) : null}
       </ul>

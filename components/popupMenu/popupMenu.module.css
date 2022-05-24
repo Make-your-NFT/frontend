@@ -1,0 +1,52 @@
+.layout {
+  position: absolute;
+  min-width: 10vw;
+  width: 10vw;
+  height: fit-content;
+  flex-direction: column;
+  background-color: white;
+  top: 7.4vh;
+  right: 1vw;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  animation: show 0.2s linear forwards;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 5px 0px;
+}
+.navBar {
+  padding-left: 0;
+}
+.navItem {
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(71, 71, 71);
+  border-bottom: 1px solid rgb(214, 214, 214);
+  align-items: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.navItem:hover {
+  animation: hover 0.1s linear forwards;
+}
+
+@keyframes show {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 40vh;
+  }
+}
+
+@keyframes hover {
+  from {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+  }
+  to {
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 0px;
+  }
+}
