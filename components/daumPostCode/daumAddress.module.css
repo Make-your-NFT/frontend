@@ -1,0 +1,30 @@
+.layout {
+  width: 100vw;
+  top: 72px;
+  height: calc(100vh - 72px);
+  background-color: rgba(4, 17, 29, 0.3);
+
+  position: absolute;
+}
+
+.daumLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.daumPostCode {
+  padding: 1vw 10vw;
+}
+
+.closeButton {
+  width: 120px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #2992fc;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+}
