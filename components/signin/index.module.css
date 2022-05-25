@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: space-around;
   gap: 30px;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
+  padding: 20px;
 }
 
 .titleLayout {
@@ -26,11 +29,20 @@
   text-align: left;
 }
 
+.subTitle {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  color: #777;
+  text-align: left;
+}
+
 .hrBold {
   width: 40%;
   border-top: none;
   border-left: none;
   border-bottom: 2px solid rgb(150, 150, 150);
+
   margin-left: 0;
   animation: titlehr 0.3s linear forwards;
 }
@@ -43,16 +55,29 @@
   gap: 20px;
 }
 
+.inputTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #777;
+}
+
+.inputLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .inputBar {
   width: 100%;
   display: flex;
   border: none;
   outline: none;
-  height: 65px;
-  padding: 15px;
+  height: 50px;
+  padding: 15px 15px 15px 5px;
   font-size: 20px;
-  border: 1px solid rgb(229, 232, 235);
-  border-radius: 10px;
+  border-bottom: 1px solid rgb(229, 232, 235);
 
   color: #777;
 }
@@ -73,7 +98,7 @@
   background-color: #2992fc;
   font-size: 24px;
   font-weight: 600;
-  padding: 20px;
+  padding: 15px 20px;
   border: none;
   cursor: pointer;
   color: white;
@@ -85,18 +110,26 @@
   border: 2px solid #2992fc;
   font-size: 24px;
   font-weight: 600;
-  padding: 20px;
+  padding: 15px 20px;
   cursor: pointer;
   background-color: white;
   border-radius: 10px;
 }
 
+.loginButton:hover {
+  animation: hover 0.2s linear forwards;
+}
+
+.signupButton:hover {
+  animation: hover 0.2s linear forwards;
+}
+
 @keyframes inputFocus {
   from {
-    border: 1px solid rgb(229, 232, 235);
+    border-bottom: 1px solid rgb(229, 232, 235);
   }
   to {
-    border: 1px solid rgb(39, 115, 190);
+    border-bottom: 1px solid rgb(39, 115, 190);
   }
 }
 
@@ -106,5 +139,14 @@
   }
   to {
     width: 40%;
+  }
+}
+
+@keyframes hover {
+  from {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+  }
+  to {
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
   }
 }

@@ -13,14 +13,13 @@ const Index = () => {
     setSearchAddress(true);
   };
 
-  const clickInput = () => {};
-
   return (
     <Layout>
       <div className={styles.layout}>
         <div className={styles.titleLayout}>
           <span className={styles.title}>회원가입</span>
           <hr className={styles.hrBold} />
+          <span className={styles.subTitle}>새로운 세상을 함께 떠나봐요</span>
         </div>
         <form style={{ width: "100%" }}>
           <div className={styles.inputLayout}>

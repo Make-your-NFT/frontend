@@ -25,22 +25,20 @@ const Index = () => {
         <div className={styles.titleLayout}>
           <span className={styles.title}>로그인</span>
           <hr className={styles.hrBold} />
-          <span>NFT 세계의 함께 해주세요!</span>
+          <span className={styles.subTitle}>
+            멋진 세상에 뛰어들 준비가 되셨나요?
+          </span>
         </div>
         {/* <Link href={KAKAO_AUTH_URL}>카카오 로그인</Link> */}
         <form className={styles.loginLayout}>
-          <input
-            className={styles.inputBar}
-            type="email"
-            id="email"
-            placeholder="Email"
-          />
-          <input
-            className={styles.inputBar}
-            type="password"
-            id="password"
-            placeholder="password"
-          />
+          <div className={styles.inputLayout}>
+            <span className={styles.inputTitle}>Email</span>
+            <input className={styles.inputBar} type="email" id="email" />
+          </div>
+          <div className={styles.inputLayout}>
+            <span className={styles.inputTitle}>Password</span>
+            <input className={styles.inputBar} type="password" id="password" />
+          </div>
         </form>
         <div className={styles.buttonLayout}>
           <button className={styles.loginButton}>로그인</button>
