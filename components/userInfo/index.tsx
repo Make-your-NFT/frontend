@@ -13,10 +13,6 @@ const Index = () => {
               <span className={styles.infoText}>김정현</span>
             </div>
             <div className={styles.info}>
-              <span className={styles.infoTag}>휴대전화</span>
-              <span className={styles.infoText}>010-6392-2953</span>
-            </div>
-            <div className={styles.info}>
               <span className={styles.infoTag}>이메일</span>
               <span className={styles.infoText}>qwer@gmail.com</span>
             </div>

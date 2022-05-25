@@ -99,7 +99,7 @@
   cursor: pointer;
   color: white;
   border: none;
-  background-color: #2992fc;
+  background: linear-gradient(to right, #cb46ec, #664eee, #51b1f1);
   border-radius: 10px;
 }
 
@@ -118,9 +118,11 @@
 
 @keyframes inputFocus {
   from {
+    border-bottom-width: 0%;
     border-bottom: 1px solid rgb(229, 232, 235);
   }
   to {
+    border-bottom-width: 100%;
     border-bottom: 1px solid rgb(39, 115, 190);
   }
 }

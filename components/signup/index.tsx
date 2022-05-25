@@ -32,6 +32,10 @@ const Index = () => {
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>비밀번호</span>
             <input className={styles.inputBar} type="password" id="password" />
+            <span style={{ fontSize: "12px" }} className={styles.subTitle}>
+              비밀번호는 8~16자 사이의 영어,숫자,특수문자를 포함하여 입력해
+              주세요.
+            </span>
           </div>
           {/* <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>휴대전화</span>
