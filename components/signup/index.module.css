@@ -91,6 +91,10 @@
   border-radius: 10px;
 }
 
+.button:hover {
+  animation: hover 0.2s linear forwards;
+}
+
 .signupButton {
   width: 100%;
   font-size: 22px;
@@ -101,6 +105,7 @@
   border: none;
   background: linear-gradient(to right, #cb46ec, #664eee, #51b1f1);
   border-radius: 10px;
+  margin-top: 50px;
 }
 
 .signupButton:hover {
@@ -132,6 +137,6 @@
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
   }
   to {
-    box-shadow: rgb(4 17 29 / 25%) 0px 0px 20px 0px;
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 10px 1px;
   }
 }
