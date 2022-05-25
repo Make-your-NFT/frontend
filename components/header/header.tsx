@@ -19,13 +19,17 @@ const Header = () => {
   const [sideBar, setSideBar] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
   const [showPopupMenu, setShowPopupMenu] = useState(false);
+  const [login, setLogin] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const isActive = window.sessionStorage.getItem("active");
-    console.log(isActive);
+    const isLogin = window.sessionStorage.getItem("isLogin");
     if (isActive) {
       activate(injected);
+    }
+    if (isLogin) {
+      setLogin(true);
     }
   }, []);
 
@@ -76,25 +80,33 @@ const Header = () => {
               Explore
             </Link>
           </li>
-          <li className={styles.navItem}>
-            <Link className={styles.navLink} href={"/create"}>
-              Create
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <div onClick={goToProfile} onMouseEnter={openPopupMenu}>
-              <RiAccountCircleLine
-                className={styles.navIcon}
-                size={40}
-                color="gray"
-              ></RiAccountCircleLine>
+          {login ? (
+            <div className={styles.navBar}>
+              <li className={styles.navItem}>
+                <Link className={styles.navLink} href={"/create"}>
+                  Create
+                </Link>
+              </li>
+              <li className={styles.navItem}>
+                <div onClick={goToProfile} onMouseEnter={openPopupMenu}>
+                  <RiAccountCircleLine
+                    className={styles.navIcon}
+                    size={40}
+                    color="gray"
+                  ></RiAccountCircleLine>
+                </div>
+              </li>
+              <li className={styles.navItem}>
+                <div onMouseEnter={openWallet}>
+                  <MdOutlineAccountBalanceWallet size={40} color="gray" />
+                </div>
+              </li>
             </div>
-          </li>
-          <li className={styles.navItem}>
-            <div onMouseEnter={openWallet}>
-              <MdOutlineAccountBalanceWallet size={40} color="gray" />
-            </div>
-          </li>
+          ) : (
+            <li className={styles.navItem}>
+              <Link href={"/signin"}>Login</Link>
+            </li>
+          )}
         </div>
         {showWallet ? (
           <div onMouseLeave={closeWallet}>

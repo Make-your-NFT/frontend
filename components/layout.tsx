@@ -9,7 +9,7 @@ const Layout = (props: layoutProps) => {
   return (
     <div style={{ height: "100%" }}>
       <Header />
-      <main className={styles.main}> {props.children}</main>
+      <main className={styles.main}>{props.children}</main>
       <Footer />
     </div>
   );
