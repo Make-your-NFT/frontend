@@ -1,6 +1,7 @@
 import styles from "components/userInfo/transaction.module.css";
 import { MdSell } from "react-icons/md";
 import { FaCoins, FaTshirt } from "react-icons/fa";
+import { BsCoin } from "react-icons/bs";
 import { testAsset1 } from "public/images/index";
 import Image from "next/image";
 
@@ -40,6 +41,10 @@ const Transaction = () => {
               <span className={styles.detailTitle}>붉은 노을</span>
               <span className={styles.detailText}>김정현</span>
             </div>
+          </div>
+          <div className={styles.detailFlexLayout}>
+            <BsCoin size={30} color="#3095F0" />
+            <span className={styles.detailTitle}>3000</span>
           </div>
         </div>
       </div>
