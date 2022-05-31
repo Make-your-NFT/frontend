@@ -1,8 +1,8 @@
 import DaumAddress from "@components/daumPostCode/daumAddress";
 import Layout from "@components/layout";
 import styles from "components/signup/index.module.css";
-import {MdClear, MdDone} from 'react-icons/md'
-import { useRef, useState } from "react";
+import { MdClear, MdDone } from "react-icons/md";
+import React, { useRef, useState } from "react";
 const Index = () => {
   const passwordRegExp = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/;
   const emailRegExp =
@@ -37,10 +37,9 @@ const Index = () => {
     setSearchAddress(true);
   };
 
-  const checkPassword = (e: any) => {
+  const checkPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length === 0) {
       setPassword(false);
-
       checkPasswordRef.current!.style.color = "#777";
       return;
     }
@@ -57,7 +56,10 @@ const Index = () => {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    console.log(e);
+    const email = e.target.email.value;
+    const phone = e.target.phone.value;
+    const address = e.target.address.value;
+    const detailAddress = e.target.detailAddress.value;
   };
 
   return (
@@ -102,8 +104,7 @@ const Index = () => {
               style={{ fontSize: "12px" }}
               className={styles.subTitle}
               ref={checkPasswordRef}
-            >
-            </span>
+            ></span>
           </div>
 
           <div className={styles.inputLayout}>
@@ -119,9 +120,23 @@ const Index = () => {
               className={styles.subTitle}
               ref={checkPasswordRef}
             >
-              8~16자 사이의 영어,숫자,특수문자를 포함하여 입력해
-              주세요.
+              8~16자 사이의 영어,숫자,특수문자를 포함하여 입력해 주세요.
             </span>
+          </div>
+
+          <div className={styles.inputLayout}>
+            <span className={styles.inputTitle}>휴대전화</span>
+            <input
+              className={styles.inputBar}
+              type="tel"
+              id="phone"
+              onChange={checkPassword}
+            />
+            <span
+              style={{ fontSize: "12px" }}
+              className={styles.subTitle}
+              ref={checkPasswordRef}
+            ></span>
           </div>
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>주소</span>
@@ -142,7 +157,9 @@ const Index = () => {
             <span className={styles.inputTitle}>상세주소</span>
             <input className={styles.inputBar} type="text" id="detailAddress" />
           </div>
-          <button className={styles.signupButton}>회원가입</button>
+          <button type="submit" className={styles.signupButton}>
+            회원가입
+          </button>
         </form>
         {searchAddress ? (
           <DaumAddress

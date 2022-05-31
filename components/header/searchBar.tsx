@@ -1,5 +1,5 @@
 import styles from "components/header/searchBar.module.css";
-import { useRef, useState, useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdClear } from "react-icons/md";
 
@@ -9,13 +9,12 @@ const SearchBar = () => {
   const searchRef = useRef<HTMLInputElement>(null);
 
   const handleClick = (e: any) => {
-    if(e.target.localName !== "input"){
+    if (e.target.placeholder !== "검색") {
       setClick(false);
+    } else {
+      click ? setClick(false) : setClick(true);
     }
-    else{
-          click ? setClick(false) : setClick(true);
-    }
-  }
+  };
   const handleTyping = (e: any) => {
     setSearch(e.target.value);
   };
@@ -27,17 +26,19 @@ const SearchBar = () => {
     }
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     window.addEventListener("click", handleClick);
 
     return () => {
       window.removeEventListener("click", handleClick);
-
-    }
-  }, [])
+    };
+  }, []);
 
   return (
-    <div className={`${!click ? styles.layout : styles.layoutActive}`} onClick={handleClick}>
+    <div
+      className={`${!click ? styles.layout : styles.layoutActive}`}
+      onClick={handleClick}
+    >
       <FaSearch className={styles.searchIcon} size="20" />
       <input
         ref={searchRef}

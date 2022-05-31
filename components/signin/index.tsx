@@ -1,24 +1,32 @@
 import Layout from "@components/layout";
 import styles from "components/signin/index.module.css";
 import Link from "next/link";
-import { KAKAO_AUTH_URL } from "@utils/login";
-
-import GoogleLogin, {
-  GoogleLoginResponse,
-  GoogleLoginResponseOffline,
-} from "react-google-login";
+import React, { useState } from "react";
+import { login } from "@utils/apis";
 import { useRouter } from "next/router";
 
 const Index = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
-  const googleClientId: string = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
 
-  const onLoginSuccess = (
-    result: GoogleLoginResponse | GoogleLoginResponseOffline
-  ) => {
-    console.log(result);
-    router.push("/profile");
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
+
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const onLogin = async () => {
+    const result = await login(email, password);
+    if (result) {
+      router.push("/");
+    } else {
+      alert("아이디나 비밀번호를 확인해 주세요.");
+    }
+  };
+
   return (
     <Layout>
       <div className={styles.layout}>
@@ -33,15 +41,27 @@ const Index = () => {
         <form className={styles.loginLayout}>
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>Email</span>
-            <input className={styles.inputBar} type="email" id="email" />
+            <input
+              className={styles.inputBar}
+              type="email"
+              id="email"
+              onChange={handleEmail}
+            />
           </div>
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>Password</span>
-            <input className={styles.inputBar} type="password" id="password" />
+            <input
+              className={styles.inputBar}
+              type="password"
+              id="password"
+              onChange={handlePassword}
+            />
           </div>
         </form>
         <div className={styles.buttonLayout}>
-          <button className={styles.loginButton}>로그인</button>
+          <button className={styles.loginButton} onClick={onLogin}>
+            로그인
+          </button>
           <Link href={"/signup"}>
             <button className={styles.signupButton}>회원가입</button>
           </Link>
