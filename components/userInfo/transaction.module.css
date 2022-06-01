@@ -19,11 +19,11 @@
 }
 
 .historyLayout {
-  min-width: 200px;
   display: flex;
   align-items: center;
   gap: 30px;
   padding: 20px;
+  cursor: pointer;
 }
 
 .countLayout {
@@ -91,4 +91,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .countTitle {
+    font-size: 20px;
+  }
+
+  .countText {
+    font-size: 16px;
+  }
 }

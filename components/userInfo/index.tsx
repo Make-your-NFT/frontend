@@ -1,6 +1,7 @@
 import Layout from "@components/layout";
 import styles from "components/userInfo/index.module.css";
 import { RiAccountCircleLine } from "react-icons/ri";
+import { BsPencilFill } from "react-icons/bs";
 import Transaction from "components/userInfo/transaction";
 
 const Index = () => {
@@ -18,9 +19,14 @@ const Index = () => {
               <span className={styles.infoTag}>이름</span>
               <span className={styles.infoText}>김정현</span>
             </div>
+
             <div className={styles.info}>
               <span className={styles.infoTag}>이메일</span>
               <span className={styles.infoText}>qwer@gmail.com</span>
+            </div>
+            <div className={styles.info}>
+              <span className={styles.infoTag}>휴대전화</span>
+              <span className={styles.infoText}>010-1234-5678</span>
             </div>
             <div className={styles.info}>
               <span className={styles.infoTag}>주소</span>
