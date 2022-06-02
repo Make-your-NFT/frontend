@@ -1,6 +1,16 @@
 import styles from "components/printShirt/option.module.css";
+import { ChangeEvent, useRef, useState } from "react";
 
 const Option = () => {
+  const [size, setSize] = useState(50);
+  const sizeInputRef = useRef<HTMLInputElement>(null);
+
+  const handleSize = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSize(Number(e.target.value));
+    sizeInputRef.current!.value = e.target.value;
+  };
+
   return (
     <div className={styles.layout}>
       <span className={styles.title}>옷 옵션 설정</span>
@@ -104,8 +114,17 @@ const Option = () => {
               type="range"
               id="sizeBar"
               name="sizeBar"
+              onChange={handleSize}
+              defaultValue={size}
             />
-            <input type="number" id="sizePercentage" min="0" max="100" />
+            <input
+              ref={sizeInputRef}
+              type="number"
+              id="sizePercentage"
+              min="1"
+              max="200"
+              onChange={handleSize}
+            />
           </form>
         </div>
       </div>
