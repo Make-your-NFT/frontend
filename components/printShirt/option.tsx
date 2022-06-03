@@ -1,14 +1,18 @@
 import styles from "components/printShirt/option.module.css";
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 const Option = () => {
-  const [size, setSize] = useState(50);
+  // const [size, setSize] = useState<number | null>(null);
   const sizeInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    sizeInputRef.current!.value = "100";
+  }, []);
 
   const handleSize = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setSize(Number(e.target.value));
-    sizeInputRef.current!.value = e.target.value;
+    // setSize(Number(e.target.value) * 2);
+    sizeInputRef.current!.value = `${Number(e.target.value) * 2}`;
   };
 
   return (
@@ -115,7 +119,7 @@ const Option = () => {
               id="sizeBar"
               name="sizeBar"
               onChange={handleSize}
-              defaultValue={size}
+              defaultValue="50"
             />
             <input
               ref={sizeInputRef}
