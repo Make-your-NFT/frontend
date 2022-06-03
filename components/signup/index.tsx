@@ -3,13 +3,14 @@ import Layout from "@components/layout";
 import styles from "components/signup/index.module.css";
 import { MdClear, MdDone } from "react-icons/md";
 import React, { useRef, useState } from "react";
+import { signup } from "@utils/apis";
 const Index = () => {
   const passwordRegExp = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/;
   const emailRegExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const [sendEmailAuth, setSendEmailAuth] = useState(false);
   const [emailAuth, setEmailAuth] = useState(false);
-  const [password, setPassword] = useState(false);
+  const [isPassword, setIsPassword] = useState(false);
   const [searchAddress, setSearchAddress] = useState(false);
   const [address, setAddress] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
@@ -39,7 +40,7 @@ const Index = () => {
 
   const checkPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length === 0) {
-      setPassword(false);
+      setIsPassword(false);
       checkPasswordRef.current!.style.color = "#777";
       return;
     }
@@ -47,19 +48,21 @@ const Index = () => {
 
     if (!result) {
       checkPasswordRef.current!.style.color = "red";
-      setPassword(false);
+      setIsPassword(false);
     } else {
       checkPasswordRef.current!.style.color = "green";
-      setPassword(true);
+      setIsPassword(true);
     }
   };
 
-  const onSubmit = (e: any) => {
+  const onSubmit = async (e: any) => {
     e.preventDefault();
     const email = e.target.email.value;
     const phone = e.target.phone.value;
-    const address = e.target.address.value;
-    const detailAddress = e.target.detailAddress.value;
+    const address = e.target.address.value + " " + e.target.detailAddress.value;
+    const password = e.target.password.value;
+
+    const result = await signup(email, password, phone, address);
   };
 
   return (

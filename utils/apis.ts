@@ -24,15 +24,13 @@ export const signup = async (
   email: string,
   password: string,
   phone: string,
-  address: string,
-  detailAddress: string
+  address: string
 ) => {
   const result = await axios.post(urls.login, {
     email,
     password,
     phone,
     address,
-    detailAddress,
   });
 
   if (result.status === 200) {
