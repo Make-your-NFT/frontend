@@ -1,6 +1,5 @@
 .layout {
   width: 100%;
-  border: 1px solid red;
   padding: 20px;
   display: flex;
   gap: 20px;

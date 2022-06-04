@@ -27,3 +27,49 @@
   align-items: center;
   gap: 20px;
 }
+
+.finalBuyLayout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalPriceLayout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eachPriceText {
+  font-size: 16px;
+  font-weight: 600;
+  color: darkgray;
+}
+
+.buyButton {
+  font-size: 22px;
+  color: white;
+  font-weight: 600;
+  padding: 10px 30px;
+  background-color: #2992fc;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buyButton:hover {
+  animation: hover 0.2s linear forwards;
+}
+
+@keyframes hover {
+  from {
+    background-color: #2992fc;
+  }
+  to {
+    background-color: #227fdb;
+  }
+}
