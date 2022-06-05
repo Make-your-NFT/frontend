@@ -19,7 +19,7 @@
 }
 
 .brandName {
-  font-size: 1.1vw;
+  font-size: 20px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
@@ -68,7 +68,7 @@
 @media all and (max-width: 640px) {
   .brandName {
     font-size: 0;
-        gap: 0px;
+    gap: 0px;
   }
   .brand {
     padding-left: 10px;
@@ -132,7 +132,6 @@
 ##Device = 태블릿, 아이패드(가로)
 ##Screen = 768px에서 1024px 사이
 */
-
 
 @media (max-width: 768px) {
   .layout {
