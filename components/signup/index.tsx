@@ -4,15 +4,19 @@ import styles from "components/signup/index.module.css";
 import { MdClear, MdDone } from "react-icons/md";
 import React, { useRef, useState } from "react";
 import { signup } from "@utils/apis";
+import { useRouter } from "next/router";
+
 const Index = () => {
   const passwordRegExp = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/;
   const emailRegExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
   const [sendEmailAuth, setSendEmailAuth] = useState(false);
   const [emailAuth, setEmailAuth] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [searchAddress, setSearchAddress] = useState(false);
   const [address, setAddress] = useState("");
+  const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const emailAuthRef = useRef<HTMLInputElement>(null);
   const checkEmailRef = useRef<HTMLSpanElement>(null);
@@ -63,6 +67,9 @@ const Index = () => {
     const password = e.target.password.value;
 
     const result = await signup(email, password, phone, address);
+    if (result) {
+      router.push("/signin");
+    }
   };
 
   return (

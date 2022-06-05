@@ -3,33 +3,38 @@ import axios from "axios";
 const baseUrl = `http://ec2-3-37-254-76.ap-northeast-2.compute.amazonaws.com`;
 
 const urls = {
-  login: `${baseUrl}/api/login`,
+  login: `${baseUrl}/api/signin`,
+  signup: `${baseUrl}/api/signup`,
 };
 
-export const login = async (email: string, password: string) => {
-  const result = await axios.post(urls.login, {
-    email: email,
-    password: password,
-  });
+interface loginProps {
+  email: string;
+  password: string;
+}
 
+export const login = async (email: string, password: string) => {
+  const result = await axios.get(urls.login, {
+    params: {
+      email: email,
+      password: password,
+    },
+  });
   if (result.status === 200) {
+    window.localStorage.setItem("user", result.data);
     return result.data;
-  } else {
-    console.log(result);
-    return null;
   }
 };
 
 export const signup = async (
   email: string,
   password: string,
-  phone: string,
+  phoneNum: string,
   address: string
 ) => {
-  const result = await axios.post(urls.login, {
+  const result = await axios.post(urls.signup, {
     email,
     password,
-    phone,
+    phoneNum,
     address,
   });
 

@@ -52,10 +52,14 @@ const Filter = () => {
       {!filterClick || openFilter ? (
         <div className={styles.filterList} ref={filterRef}>
           <div>
-            <FilterBox name="가격" children={<PriceFilter />} />
+            <FilterBox name="가격">
+              <PriceFilter />
+            </FilterBox>
           </div>
           <div>
-            <FilterBox name="브랜드" children={<BrandFilter />} />
+            <FilterBox name="브랜드">
+              <BrandFilter />
+            </FilterBox>
           </div>
         </div>
       ) : null}

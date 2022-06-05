@@ -24,7 +24,7 @@ const Header = () => {
 
   useEffect(() => {
     const isActive = window.sessionStorage.getItem("active");
-    const isLogin = window.sessionStorage.getItem("isLogin");
+    const isLogin = window.localStorage.getItem("user");
     if (isActive) {
       activate(injected);
     }
