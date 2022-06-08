@@ -7,7 +7,6 @@ const BuyShirt = () => {
     <div className={styles.layout}>
       <Option />
       <PrintInfo />
-      <div className={styles.totalPriceLayout}></div>
     </div>
   );
 };
