@@ -1,5 +1,5 @@
 import styles from "components/printShirt/shirtModeling.module.css";
-import { Suspense, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import {
@@ -7,13 +7,21 @@ import {
   useProgress,
   Environment,
   OrbitControls,
+  Stars,
 } from "@react-three/drei";
-import {} from "@react-three/drei";
 import { Mesh } from "three";
 import Loading from "@components/loading/loading";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
+import { useRecoilState } from "recoil";
+import { optionState, optionTypes } from "recoil/option";
 
 const ShirtModeling = () => {
+  const [option] = useRecoilState<optionTypes>(optionState);
+
+  useEffect(() => {
+    console.log(option);
+  }, [option]);
+
   const Scene = () => {
     const objRef = useRef<Mesh>(null);
     const obj = useLoader(OBJLoader, "/models/testModel.obj");
@@ -33,7 +41,7 @@ const ShirtModeling = () => {
   const Loader = () => {
     const { progress } = useProgress();
     return (
-      <Html prepend center>
+      <Html center>
         <Loading />
         {progress}%
       </Html>
@@ -49,7 +57,7 @@ const ShirtModeling = () => {
         <ambientLight intensity={0.2} />
         <directionalLight />
         <mesh>
-          <planeGeometry args={[1, 32, 32]} width={0.1} height={0.1} />
+          <planeGeometry args={[1, 1, 2]} />
           <meshStandardMaterial map={colorMap} />
         </mesh>
       </>
@@ -76,10 +84,12 @@ const ShirtModeling = () => {
           <ambientLight intensity={0.2} />
           <directionalLight color="white" position={[0, 0, 2]} />
           <Suspense fallback={<Loader />}>
+            <OrbitControls />
             <Scene />
             {/* <Scene /> */}
             <NFTImage />
             <Environment preset="sunset" background={false} />
+            <Stars />
           </Suspense>
         </Canvas>
       </div>

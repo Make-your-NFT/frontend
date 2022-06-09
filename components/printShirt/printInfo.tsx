@@ -7,11 +7,6 @@ const PrintInfo = () => {
     <div className={styles.layout}>
       <span className={styles.title}>구매 정보</span>
       <div className={styles.printInfoLayout}>
-        <div className={styles.assetLayout}>
-          <PrintInfoAsset />
-          <PrintInfoAsset />
-          <PrintInfoAsset />
-        </div>
         <div className={styles.finalBuyLayout}>
           <div className={styles.totalPriceLayout}>
             <span className={styles.title}>총 가격 :</span>

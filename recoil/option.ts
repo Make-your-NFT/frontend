@@ -3,15 +3,16 @@ import { atom } from "recoil";
 export interface optionTypes {
   shirtShape: string;
   shirtSize: string;
-  NFTsize: string;
+  NFTSize: number;
+  position: string;
 }
 
-export const todoState = atom<optionTypes>({
+export const optionState = atom<optionTypes>({
   key: "options",
-
   default: {
     shirtShape: "long",
     shirtSize: "L",
-    NFTsize: "100",
+    NFTSize: 100,
+    position: "전면 전체",
   },
 });
