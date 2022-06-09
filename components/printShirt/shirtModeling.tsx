@@ -7,6 +7,7 @@ import { useLoader } from "@react-three/fiber";
 import { Html, useProgress } from "@react-three/drei";
 import { Environment, OrbitControls } from "@react-three/drei";
 import { Mesh } from "three";
+import Loading from "@components/loading/loading";
 
 const ShirtModeling = () => {
   const TestScene = () => {
@@ -27,8 +28,12 @@ const ShirtModeling = () => {
 
   const Loader = () => {
     const { progress } = useProgress();
-    console.log(progress);
-    return <Html center>{progress} % loaded</Html>;
+    return (
+      <Html prepend center>
+        <Loading />
+        {progress}%
+      </Html>
+    );
   };
 
   // const Cube = () => {
