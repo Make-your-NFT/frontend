@@ -5,15 +5,15 @@ const Option = () => {
   // const [size, setSize] = useState<number | null>(null);
   const sizeInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    sizeInputRef.current!.value = "100";
-  }, []);
+  // useEffect(() => {
+  //   sizeInputRef.current!.value = "100";
+  // }, []);
 
-  const handleSize = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    // setSize(Number(e.target.value) * 2);
-    sizeInputRef.current!.value = `${Number(e.target.value) * 2}`;
-  };
+  // const handleSize = (e: ChangeEvent<HTMLInputElement>) => {
+  //   e.preventDefault();
+  //   // setSize(Number(e.target.value) * 2);
+  //   sizeInputRef.current!.value = `${Number(e.target.value) * 2}`;
+  // };
 
   return (
     <div className={styles.layout}>
@@ -108,15 +108,22 @@ const Option = () => {
           </div>
         </div>
       </div>
-      <span className={styles.title}>NFT 옵션 설정</span>
       <div className={styles.optionBarLayout}>
         <div className={styles.optionFlexLayout} style={{ gap: "5vw" }}>
-          <span className={styles.optionTitle}>사이즈</span>
-          <form className={styles.optionFlexLayout}>
+          <span className={styles.optionTitle}>위치</span>
+          <div className={styles.optionFlexLayout}>
+            <button className={styles.positionButton}>전면 전체</button>
+            <button className={styles.positionButton}>앞쪽</button>
+            <button className={styles.positionButton}>앞쪽</button>
+            <button className={styles.positionButton}>앞쪽</button>
+            <button className={styles.positionButton}>앞쪽</button>
+            <button className={styles.positionButton}>앞쪽</button>
+          </div>
+          {/* <form className={styles.optionFlexLayout}>
             <input
               className={styles.sizeBar}
               type="range"
-              id="sizeBar"
+              id="sizeBar"  
               name="sizeBar"
               onChange={handleSize}
               defaultValue="50"
@@ -129,7 +136,7 @@ const Option = () => {
               max="200"
               onChange={handleSize}
             />
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
