@@ -24,10 +24,10 @@ const Option = () => {
 
   const handleNFTSize = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    sizeInputRef.current!.value = `${Number(e.target.value) * 2}`;
+    sizeInputRef.current!.value = `${Number(e.target.value) * 2 + 100}`;
     setOption({
       ...option,
-      NFTSize: Number(e.target.value) * 2,
+      NFTSize: Number(e.target.value) * 2 + 100,
     });
   };
 
@@ -40,7 +40,6 @@ const Option = () => {
   };
 
   const handleshirtShape = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.id);
     setOption({
       ...option,
       shirtShape: e.target.id,
@@ -186,14 +185,14 @@ const Option = () => {
             id="sizeBar"
             name="sizeBar"
             onChange={handleNFTSize}
-            defaultValue="50"
+            defaultValue="0"
           />
           <input
             ref={sizeInputRef}
             type="number"
             id="sizePercentage"
             min="1"
-            max="200"
+            max="100"
             onChange={handleNFTSize}
           />
         </form>

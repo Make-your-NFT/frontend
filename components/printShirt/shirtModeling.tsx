@@ -17,16 +17,15 @@ import { optionState, optionTypes } from "recoil/option";
 
 const ShirtModeling = () => {
   const [option] = useRecoilState<optionTypes>(optionState);
+  const objRef = useRef<Mesh>(null);
 
   useEffect(() => {
-    console.log(option);
-  }, [option]);
+    console.log(option.NFTSize);
+  }, [option.position]);
 
   const Scene = () => {
-    const objRef = useRef<Mesh>(null);
     const obj = useLoader(OBJLoader, "/models/testModel.obj");
     useFrame(() => (objRef.current!.rotation.z += 0.01)); // #2
-
     return (
       <primitive
         ref={objRef}
@@ -57,7 +56,13 @@ const ShirtModeling = () => {
         <ambientLight intensity={0.2} />
         <directionalLight />
         <mesh>
-          <planeGeometry args={[1, 1, 2]} />
+          <planeGeometry
+            args={[
+              0.01 * option.NFTSize,
+              0.01 * option.NFTSize,
+              0.01 * option.NFTSize,
+            ]}
+          />
           <meshStandardMaterial map={colorMap} />
         </mesh>
       </>
