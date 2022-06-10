@@ -1,5 +1,11 @@
 import styles from "components/printShirt/option.module.css";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  FormEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useRecoilState } from "recoil";
 import { optionState, optionTypes } from "recoil/option";
 import { MouseEvent } from "react";
@@ -34,10 +40,10 @@ const Option = () => {
   };
 
   const handleshirtShape = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+    console.log(e.target.id);
     setOption({
       ...option,
-      shirtShape: e.target.value,
+      shirtShape: e.target.id,
     });
   };
 
@@ -59,6 +65,7 @@ const Option = () => {
               <form className={styles.optionFlexLayout}>
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtShape}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtType"
@@ -71,6 +78,7 @@ const Option = () => {
 
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtShape}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtType"
@@ -86,53 +94,58 @@ const Option = () => {
               <form className={styles.optionFlexLayout}>
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtSize}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
                     id="long"
-                    value="long"
+                    value="S"
                   />
                   S
                 </label>
 
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtSize}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
                     id="short"
-                    value="short"
+                    value="M"
                   />
                   M
                 </label>
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtSize}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
                     id="short"
-                    value="short"
+                    value="L"
                     defaultChecked
                   />
                   L
                 </label>
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtSize}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
                     id="short"
-                    value="short"
+                    value="XL"
                   />
                   XL
                 </label>
                 <label className={styles.optionLabel}>
                   <input
+                    onChange={handleshirtSize}
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
                     id="short"
-                    value="short"
+                    value="XXL"
                   />
                   XXL
                 </label>
