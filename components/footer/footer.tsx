@@ -1,7 +1,7 @@
 import styles from "components/footer/footer.module.css";
 
 const Footer = () => {
-  return <div className={styles.layout}></div>;
+  return <footer className={styles.layout}></footer>;
 };
 
 export default Footer;

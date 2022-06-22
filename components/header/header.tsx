@@ -63,7 +63,7 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.layout}>
+    <header className={styles.layout}>
       <div className={styles.brand}>
         <Link href={"/"}>
           <div className={styles.brandName}>
@@ -128,7 +128,7 @@ const Header = () => {
         )}
       </div>
       {sideBar ? <SideBar /> : null}
-    </div>
+    </header>
   );
 };
 

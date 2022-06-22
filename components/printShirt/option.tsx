@@ -97,7 +97,6 @@ const Option = () => {
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
-                    id="long"
                     value="S"
                   />
                   S
@@ -109,7 +108,6 @@ const Option = () => {
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
-                    id="short"
                     value="M"
                   />
                   M
@@ -120,7 +118,6 @@ const Option = () => {
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
-                    id="short"
                     value="L"
                     defaultChecked
                   />
@@ -132,7 +129,6 @@ const Option = () => {
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
-                    id="short"
                     value="XL"
                   />
                   XL
@@ -143,7 +139,6 @@ const Option = () => {
                     className={styles.radioOption}
                     type="radio"
                     name="shirtSize"
-                    id="short"
                     value="XXL"
                   />
                   XXL
