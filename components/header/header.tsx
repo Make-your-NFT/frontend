@@ -83,8 +83,8 @@ const Header = () => {
           {login ? (
             <div className={styles.navBar}>
               <li className={styles.navItem}>
-                <Link className={styles.navLink} href={"/create"}>
-                  Create
+                <Link className={styles.navLink} href={"/exchange"}>
+                  Exchange
                 </Link>
               </li>
               <li className={styles.navItem}>
