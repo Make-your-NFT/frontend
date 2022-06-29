@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const baseUrl = `http://ec2-3-37-254-76.ap-northeast-2.compute.amazonaws.com`;
+const baseUrl = `https://ys-myn.herokuapp.com`;
 
 const urls = {
-  login: `${baseUrl}/api/signin`,
-  signup: `${baseUrl}/api/signup`,
+  login: `${baseUrl}/common/signin/`,
+  signup: `${baseUrl}/common/signup/`,
+  checkID: `${baseUrl}/common/signup/check/id/`,
+  checkEmail: `${baseUrl}/common/signup/check/email/`,
 };
 
 interface loginProps {
@@ -12,12 +14,10 @@ interface loginProps {
   password: string;
 }
 
-export const login = async (email: string, password: string) => {
-  const result = await axios.get(urls.login, {
-    params: {
-      email: email,
-      password: password,
-    },
+export const login = async (id: string, password: string) => {
+  const result = await axios.post(urls.login, {
+    username: id,
+    password,
   });
   if (result.status === 200) {
     window.localStorage.setItem("user", result.data);
@@ -25,11 +25,17 @@ export const login = async (email: string, password: string) => {
   }
 };
 
-export const signup = async (id: string, email: string, password: string) => {
+export const signup = async (
+  id: string,
+  email: string,
+  password: string,
+  againPassword: string
+) => {
   const result = await axios.post(urls.signup, {
-    id,
+    username: id,
     email,
     password,
+    password2: againPassword,
   });
 
   if (result.status === 200) {
@@ -41,8 +47,8 @@ export const signup = async (id: string, email: string, password: string) => {
 };
 
 export const checkID = async (id: string) => {
-  const result = await axios.post(urls.signup, {
-    id,
+  const result = await axios.post(urls.checkID, {
+    userid: id,
   });
 
   if (result.status === 200) {
@@ -53,8 +59,9 @@ export const checkID = async (id: string) => {
   }
 };
 
-export const checkEmail = async (email: string) => {
-  const result = await axios.post(urls.signup, {
+export const checkEmail = async (id: string, email: string) => {
+  const result = await axios.post(urls.checkEmail, {
+    userid: id,
     email,
   });
 

@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { signup, checkID } from "@utils/apis";
+import { signup, checkID, checkEmail } from "@utils/apis";
 import { useRouter } from "next/router";
 
 const Index = () => {
@@ -19,7 +19,10 @@ const Index = () => {
   const [isCheckID, setIsCheckID] = useState(false);
 
   const [sendEmailAuth, setSendEmailAuth] = useState(false);
+  const [email, setEmail] = useState("");
   const [emailAuth, setEmailAuth] = useState(false);
+  const [password, setPassword] = useState("");
+  const [rightPassword, setRightPassword] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [searchAddress, setSearchAddress] = useState(false);
   const [address, setAddress] = useState("");
@@ -30,12 +33,14 @@ const Index = () => {
   const checkIDRef = useRef<HTMLSpanElement>(null);
 
   const checkEmailRef = useRef<HTMLSpanElement>(null);
+  const passwordRef = useRef<HTMLSpanElement>(null);
   const checkPasswordRef = useRef<HTMLSpanElement>(null);
 
-  const handleEmailAuth = (e: any) => {
+  const handleEmailIsRight = (e: any) => {
     e.preventDefault();
-    const email = emailRef.current!.value;
-    const result = emailRegExp.test(email);
+    const checkedEmail = emailRef.current!.value;
+    setEmail(checkedEmail);
+    const result = emailRegExp.test(checkedEmail);
 
     if (!result) {
       checkEmailRef.current!.style.color = "red";
@@ -46,6 +51,10 @@ const Index = () => {
       setIsCheckID(true);
       emailAuthRef.current!.disabled = false;
     }
+  };
+
+  const handleEmailAuth = async () => {
+    const result = await checkEmail(id, email);
   };
   const handleCheckID = async () => {
     const result = await checkID(id);
@@ -59,24 +68,49 @@ const Index = () => {
       emailAuthRef.current!.disabled = false;
     }
   };
+
+  const handleCheckPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value.length === 0) {
+      checkPasswordRef.current!.style.display = "none";
+      setRightPassword(false);
+
+      return;
+    } else {
+      setRightPassword(false);
+
+      checkPasswordRef.current!.style.display = "block";
+    }
+
+    if (e.target.value !== password) {
+      checkPasswordRef.current!.style.color = "red";
+      checkPasswordRef.current!.innerHTML = "비밀번호가 일치하지 않습니다.";
+      setRightPassword(false);
+    } else {
+      checkPasswordRef.current!.style.color = "green";
+      checkPasswordRef.current!.innerHTML = "비밀번호가 일치합니다.";
+      setRightPassword(true);
+    }
+  };
   // const handleSearchAddress = (e: any) => {
   //   e.preventDefault();
   //   setSearchAddress(true);
   // };
 
   const checkPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+
     if (e.target.value.length === 0) {
       setIsPassword(false);
-      checkPasswordRef.current!.style.color = "#777";
+      passwordRef.current!.style.color = "#777";
       return;
     }
     const result = passwordRegExp.test(e.target.value);
 
     if (!result) {
-      checkPasswordRef.current!.style.color = "red";
+      passwordRef.current!.style.color = "red";
       setIsPassword(false);
     } else {
-      checkPasswordRef.current!.style.color = "green";
+      passwordRef.current!.style.color = "green";
       setIsPassword(true);
     }
   };
@@ -86,8 +120,9 @@ const Index = () => {
     const id = e.target.id.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const againPassword = e.target.checkPassword.value;
 
-    const result = await signup(id, email, password);
+    const result = await signup(id, email, password, againPassword);
     if (result) {
       router.push("/signin");
     }
@@ -107,8 +142,8 @@ const Index = () => {
             <div className={styles.inputWithButtonLayout}>
               <input
                 className={styles.inputBar}
-                type="email"
-                id="email"
+                type="text"
+                id="id"
                 ref={emailRef}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setId(e.target.value);
@@ -147,8 +182,6 @@ const Index = () => {
             <span className={styles.inputTitle}>인증번호</span>
             <input
               className={styles.inputBar}
-              type="password"
-              id="password"
               onChange={checkPassword}
               disabled
               ref={emailAuthRef}
@@ -156,7 +189,7 @@ const Index = () => {
             <span
               style={{ fontSize: "12px" }}
               className={styles.subTitle}
-              ref={checkPasswordRef}
+              ref={passwordRef}
             ></span>
           </div>
 
@@ -171,10 +204,24 @@ const Index = () => {
             <span
               style={{ fontSize: "12px" }}
               className={styles.subTitle}
-              ref={checkPasswordRef}
+              ref={passwordRef}
             >
               8~16자 사이의 영어,숫자,특수문자를 포함하여 입력해 주세요.
             </span>
+          </div>
+          <div className={styles.inputLayout}>
+            <span className={styles.inputTitle}>비밀번호 확인</span>
+            <input
+              className={styles.inputBar}
+              type="password"
+              id="checkPassword"
+              onChange={handleCheckPassword}
+            />
+            <span
+              style={{ fontSize: "12px" }}
+              className={styles.subTitle}
+              ref={checkPasswordRef}
+            ></span>
           </div>
 
           {/* <div className={styles.inputLayout}>
@@ -210,10 +257,11 @@ const Index = () => {
             <span className={styles.inputTitle}>상세주소</span>
             <input className={styles.inputBar} type="text" id="detailAddress" />
           </div> */}
+          <button type="submit" className={styles.signupButton}>
+            회원가입
+          </button>
         </form>
-        <button type="submit" className={styles.signupButton}>
-          회원가입
-        </button>
+
         {/* {searchAddress ? (
           <DaumAddress
             setSearchAddress={setSearchAddress}
