@@ -1,6 +1,7 @@
 import Layout from "@components/layout";
 import styles from "components/exchange/index.module.css";
 import Chart from "./chart";
+import ExchangeToken from "./exchangeToken";
 import GameList from "./gameList";
 import Title from "./title";
 import TransactionDetails from "./transactionDetails";
@@ -16,6 +17,7 @@ const Index = () => {
         </div>
         <div className={styles.infoLayoutB}>
           <GameList />
+          <ExchangeToken />
         </div>
       </div>
     </Layout>
