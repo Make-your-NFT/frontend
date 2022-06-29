@@ -9,12 +9,12 @@ const Index = () => {
   return (
     <Layout>
       <div className={styles.flexLayout}>
-        <div className={styles.infoLayout}>
+        <div className={styles.infoLayoutA}>
           <Title />
           <Chart />
           <TransactionDetails />
         </div>
-        <div className={styles.infoLayout}>
+        <div className={styles.infoLayoutB}>
           <GameList />
         </div>
       </div>
