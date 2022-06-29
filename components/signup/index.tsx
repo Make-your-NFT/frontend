@@ -2,23 +2,33 @@ import DaumAddress from "@components/daumPostCode/daumAddress";
 import Layout from "@components/layout";
 import styles from "components/signup/index.module.css";
 import { MdClear, MdDone } from "react-icons/md";
-import React, { useRef, useState } from "react";
-import { signup } from "@utils/apis";
+import React, {
+  ChangeEventHandler,
+  FormEventHandler,
+  useRef,
+  useState,
+} from "react";
+import { signup, checkID } from "@utils/apis";
 import { useRouter } from "next/router";
 
 const Index = () => {
   const passwordRegExp = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,16}$/;
   const emailRegExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  const [id, setId] = useState("");
+  const [isCheckID, setIsCheckID] = useState(false);
 
   const [sendEmailAuth, setSendEmailAuth] = useState(false);
   const [emailAuth, setEmailAuth] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [searchAddress, setSearchAddress] = useState(false);
   const [address, setAddress] = useState("");
+
   const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const emailAuthRef = useRef<HTMLInputElement>(null);
+  const checkIDRef = useRef<HTMLSpanElement>(null);
+
   const checkEmailRef = useRef<HTMLSpanElement>(null);
   const checkPasswordRef = useRef<HTMLSpanElement>(null);
 
@@ -33,14 +43,26 @@ const Index = () => {
         "유효한 이메일 형식으로 입력해 주세요.";
     } else {
       checkEmailRef.current!.innerHTML = "";
+      setIsCheckID(true);
+      emailAuthRef.current!.disabled = false;
+    }
+  };
+  const handleCheckID = async () => {
+    const result = await checkID(id);
+    if (!result) {
+      checkEmailRef.current!.style.color = "red";
+      checkEmailRef.current!.innerHTML =
+        "유효한 이메일 형식으로 입력해 주세요.";
+    } else {
+      checkEmailRef.current!.innerHTML = "";
       setSendEmailAuth(true);
       emailAuthRef.current!.disabled = false;
     }
   };
-  const handleSearchAddress = (e: any) => {
-    e.preventDefault();
-    setSearchAddress(true);
-  };
+  // const handleSearchAddress = (e: any) => {
+  //   e.preventDefault();
+  //   setSearchAddress(true);
+  // };
 
   const checkPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length === 0) {
@@ -61,12 +83,11 @@ const Index = () => {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
+    const id = e.target.id.value;
     const email = e.target.email.value;
-    const phone = e.target.phone.value;
-    const address = e.target.address.value + " " + e.target.detailAddress.value;
     const password = e.target.password.value;
 
-    const result = await signup(email, password, phone, address);
+    const result = await signup(id, email, password);
     if (result) {
       router.push("/signin");
     }
@@ -81,6 +102,28 @@ const Index = () => {
           <span className={styles.subTitle}>새로운 세상을 함께 떠나봐요</span>
         </div>
         <form style={{ width: "100%" }} onSubmit={onSubmit}>
+          <div className={styles.inputLayout}>
+            <span className={styles.inputTitle}>아이디</span>
+            <div className={styles.inputWithButtonLayout}>
+              <input
+                className={styles.inputBar}
+                type="email"
+                id="email"
+                ref={emailRef}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setId(e.target.value);
+                }}
+              />
+              <button className={styles.button} onClick={handleCheckID}>
+                중복 확인
+              </button>
+            </div>
+            <span
+              style={{ fontSize: "12px" }}
+              className={styles.subTitle}
+              ref={checkIDRef}
+            ></span>
+          </div>
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>이메일</span>
             <div className={styles.inputWithButtonLayout}>
@@ -134,7 +177,7 @@ const Index = () => {
             </span>
           </div>
 
-          <div className={styles.inputLayout}>
+          {/* <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>휴대전화</span>
             <input
               className={styles.inputBar}
@@ -147,8 +190,8 @@ const Index = () => {
               className={styles.subTitle}
               ref={checkPasswordRef}
             ></span>
-          </div>
-          <div className={styles.inputLayout}>
+          </div> */}
+          {/* <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>주소</span>
             <div className={styles.inputWithButtonLayout}>
               <input
@@ -166,17 +209,17 @@ const Index = () => {
           <div className={styles.inputLayout}>
             <span className={styles.inputTitle}>상세주소</span>
             <input className={styles.inputBar} type="text" id="detailAddress" />
-          </div>
-          <button type="submit" className={styles.signupButton}>
-            회원가입
-          </button>
+          </div> */}
         </form>
-        {searchAddress ? (
+        <button type="submit" className={styles.signupButton}>
+          회원가입
+        </button>
+        {/* {searchAddress ? (
           <DaumAddress
             setSearchAddress={setSearchAddress}
             setAddress={setAddress}
           />
-        ) : null}
+        ) : null} */}
       </div>
     </Layout>
   );

@@ -25,17 +25,37 @@ export const login = async (email: string, password: string) => {
   }
 };
 
-export const signup = async (
-  email: string,
-  password: string,
-  phoneNum: string,
-  address: string
-) => {
+export const signup = async (id: string, email: string, password: string) => {
   const result = await axios.post(urls.signup, {
+    id,
     email,
     password,
-    phoneNum,
-    address,
+  });
+
+  if (result.status === 200) {
+    return result.data;
+  } else {
+    console.log(result);
+    return null;
+  }
+};
+
+export const checkID = async (id: string) => {
+  const result = await axios.post(urls.signup, {
+    id,
+  });
+
+  if (result.status === 200) {
+    return result.data;
+  } else {
+    console.log(result);
+    return null;
+  }
+};
+
+export const checkEmail = async (email: string) => {
+  const result = await axios.post(urls.signup, {
+    email,
   });
 
   if (result.status === 200) {
