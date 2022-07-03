@@ -32,3 +32,9 @@ input:-webkit-autofill:active {
   src: url("/font/SpoqaHanSans_subset/Spoqa Han Sans Regular.woff2")
     format("truetype");
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
