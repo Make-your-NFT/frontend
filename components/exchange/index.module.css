@@ -1,5 +1,5 @@
 .flexLayout {
-  width: 1600px;
+  max-width: 1600px;
   height: calc(100vh - 170px);
   display: flex;
   margin: 0 auto;
@@ -20,4 +20,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 960px) {
+  .flexLayout {
+    max-width: 960px;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .infoLayoutA {
+    width: 100%;
+  }
+
+  .infoLayoutB {
+    width: 100%;
+  }
 }
