@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Make Yout NFT</title>
+        <title>Game NFT</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no"
