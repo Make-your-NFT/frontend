@@ -11,8 +11,8 @@ interface assetProps {
 
 const Asset = (props: assetProps) => {
   return (
-    <Link href={`/details/${props.id}`} className={styles.layout}>
-      <a>
+    <Link href={`/details/${props.id}`}>
+      <a className={styles.layout}>
         <Image src={shirt} width={400} height={400} />
         <div className={styles.title}>{props.title}</div>
         <div className={styles.author}>{props.author}</div>

@@ -1,9 +1,7 @@
+import Index from "@components/detail";
 import { useRouter } from "next/router";
 
 const Detail = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  return <p>Post: {id}</p>;
+  return <Index />;
 };
 export default Detail;
