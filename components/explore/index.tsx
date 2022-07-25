@@ -21,6 +21,7 @@ const Index = () => {
                   key={index}
                   title={asset["title"]}
                   author={asset["author"]}
+                  id={index}
                 />
               );
             })}
